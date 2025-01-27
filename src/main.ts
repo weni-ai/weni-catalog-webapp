@@ -5,6 +5,7 @@ import { createPinia } from 'pinia'
 import { UnnnicSystem } from './plugins/UnnnicSystem';
 import { i18n } from './locales'
 
+
 const pinia = createPinia();
 const app = createApp(App);
 

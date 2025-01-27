@@ -1,13 +1,16 @@
 <template>
+  <Header/>
   <main>
     <RouterView />
   </main>
 </template>
 
 <script setup lang="ts">
+import Header from './components/Header.vue';
 </script>
 
 <style lang="scss">
+<<<<<<< HEAD
 @import '@weni/unnnic-system/src/assets/scss/unnnic.scss';
 @import './styles/reset.scss';
 
@@ -23,4 +26,7 @@
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
+=======
+@import './style.scss';
+>>>>>>> a382b01 (chore: add home page)
 </style>
