@@ -20,6 +20,9 @@ const searchInput = ref('')
 .home{
     &__search{
         margin: 16px;
+        @media (min-width: 768px) {
+            margin: 24px 32px 0 32px;
+        }
     }
 }
 </style>

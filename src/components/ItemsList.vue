@@ -30,5 +30,10 @@ import ItemCard from './ItemCard.vue';
     align-items: flex-start;
     gap: 8px;
     align-self: stretch;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(5, 1fr);
+        padding: 24px 32px 0px 32px;
+    }
 }
 </style>
