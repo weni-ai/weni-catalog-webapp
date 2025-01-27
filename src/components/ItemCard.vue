@@ -55,6 +55,7 @@ const selledBy = `Vendido por ${props.seller}`
         border-radius: 0 0 var(--border-radius-md, 8px) var(--border-radius-md, 8px);
         background: var(--Green-color-aux-green-100, #C6F6D5);
         font-size: 10px;
+        width: 100%;
     }
 
     &__description {
@@ -97,7 +98,7 @@ const selledBy = `Vendido por ${props.seller}`
 
     &__button {
         width: 100%;
-        
+
         :deep(.unnnic-button) {
             width: 100%;
         }
