@@ -1,24 +1,13 @@
 <template>
     <div class="items">
-        <ItemCard title="Cloridrato de Sertralina 25mg 30 comprimidos Eurofarma Genérico" image="aaaaa"
-            owner="Europharma" :discount="5" seller="Farma X" :value="164" :oldValue="169" />
-        <ItemCard title="Cloridrato de Sertralina 25mg 30 comprimidos Eurofarma Genérico" image="aaaaa"
-            owner="Europharma" :discount="5" seller="Farma X" :value="164" :oldValue="169" />
-        <ItemCard title="Cloridrato de Sertralina 25mg 30 comprimidos Eurofarma Genérico" image="aaaaa"
-            owner="Europharma" :discount="5" seller="Farma X" :value="164" :oldValue="169" />
-        <ItemCard title="Cloridrato de Sertralina 25mg 30 comprimidos Eurofarma Genérico" image="aaaaa"
-            owner="Europharma" :discount="5" seller="Farma X" :value="164" :oldValue="169" />
-        <ItemCard title="Cloridrato de Sertralina 25mg 30 comprimidos Eurofarma Genérico" image="aaaaa"
-            owner="Europharma" :discount="5" seller="Farma X" :value="164" :oldValue="169" />
-        <ItemCard title="Cloridrato de Sertralina 25mg 30 comprimidos Eurofarma Genérico" image="aaaaa"
-            owner="Europharma" :discount="5" seller="Farma X" :value="164" :oldValue="169" />
-        <ItemCard title="Cloridrato de Sertralina 25mg 30 comprimidos Eurofarma Genérico" image="aaaaa"
-            owner="Europharma" :discount="5" seller="Farma X" :value="164" :oldValue="169" />
+        <ItemCard v-for="item in itemsList" :key="item.id" :product="item" />
     </div>
 </template>
 
 <script setup lang="ts">
+import { itemsList } from '../mocks';
 import ItemCard from './ItemCard.vue';
+
 
 </script>
 
