@@ -7,33 +7,34 @@
             <img src="../assets/model.png" alt="">
         </div>
         <div class="card__description">
-            <div class="card__description__title">{{ title }}</div>
-            <div class="card__description__owner">{{ owner }}</div>
+            <div class="card__description__title">{{ product.title }}</div>
+            <div class="card__description__owner">{{ product.owner }}</div>
             <div class="card__description__old_value">{{ oldValueTitle }}</div>
             <div class="card__description__new_value">{{ newValue }}</div>
             <div class="card__description__seller">{{ selledBy }}</div>
         </div>
         <div class="card__button">
-            <UnnnicButton iconLeft="add-1">Adicionar</UnnnicButton>
+            <UnnnicButton iconLeft="add-1" @click="handleAddToCart">Adicionar</UnnnicButton>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
+import type { ProductItem } from '../types/Cart';
+import { addToCart } from '../utils/cart';
+
 const props = defineProps<{
-    title: string,
-    image: string,
-    discount?: number,
-    owner: string,
-    oldValue?: number,
-    value: number,
-    seller: string
+    product: ProductItem
 }>()
 
-const discountTitle = `${props.discount}% de desconto`
-const oldValueTitle = ` de R$${props.oldValue},00`
-const newValue = `R$${props.value},00`
-const selledBy = `Vendido por ${props.seller}`
+const discountTitle = `${props.product.discount}% de desconto`
+const oldValueTitle = ` de R$${props.product.oldValue},00`
+const newValue = `R$${props.product.value},00`
+const selledBy = `Vendido por ${props.product.seller}`
+
+function handleAddToCart() {
+    addToCart(props.product);
+}
 </script>
 
 <style lang="scss" scoped>
