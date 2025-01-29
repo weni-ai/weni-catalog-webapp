@@ -3,23 +3,60 @@
         <div class="home__search">
             <UnnnicInput v-model="searchInput" iconLeft="search-1" placeholder="Procurar produto" />
         </div>
-        <div class="home__items">
-            <ItemsList/>
+        <div class="home__items" :style="{ paddingBottom: isDrawerOpen ? `${drawerHeight/2}px` : '16px' }">
+            <ItemsList />
         </div>
+        <SummaryDrawer v-if="isMobile" :isOpen="isDrawerOpen" :itemCount="itemCount" :totalValue="totalValue" />
     </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue';
-import ItemsList from '../components/ItemsList.vue';
 
-const searchInput = ref('')
+<script lang="ts" setup>
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { useCartStore } from '../store/cart.store';
+import ItemsList from '../components/ItemsList.vue';
+import SummaryDrawer from '../components/SummaryDrawer.vue';
+
+const isMobile = ref(window.innerWidth < 768);
+
+const updateScreenSize = () => {
+    isMobile.value = window.innerWidth < 768;
+};
+
+onMounted(() => {
+    window.addEventListener('resize', updateScreenSize);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('resize', updateScreenSize);
+});
+
+
+const searchInput = ref('');
+
+const cartStore = useCartStore();
+
+const cartItems = computed(() => cartStore.items);
+
+const isDrawerOpen = computed(() => cartItems.value.length > 0);
+
+const drawerHeight = 200; 
+
+const itemCount = computed(() => {
+    return cartItems.value.reduce((total, item) => total + item.qtd, 0);
+});
+
+const totalValue = computed(() => {
+    return cartItems.value.reduce((total, item) => total + item.price * item.qtd, 0);
+});
 </script>
 
+
 <style lang="scss">
-.home{
-    &__search{
+.home {
+    &__search {
         margin: 16px;
+
         @media (min-width: 768px) {
             margin: 24px 32px 0 32px;
         }
