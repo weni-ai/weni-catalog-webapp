@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="card__button">
-            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" @click="handleAddToCart">Adicionar</UnnnicButton>
+            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" size="small" @click="handleAddToCart">Adicionar</UnnnicButton>
             <ItemCounter v-else :quantity="quantityInCart" @increment="incrementQuantity"
                 @decrement="decrementQuantity"></ItemCounter>
         </div>
@@ -52,15 +52,15 @@ const selledBy = `Vendido por ${props.product.seller}`
 
 const cartStore = useCartStore();
 
-const quantityInCart = computed(() => {
-    const item = cartStore.items.find(i => i.id === props.product.id);
-    return item ? item.qtd : 0;
-});
 
 function handleAddToCart() {
     addToCart(props.product);
 }
 
+const quantityInCart = computed(() => {
+    const item = cartStore.items.find(i => i.id === props.product.id);
+    return item ? item.qtd : 0;
+});
 function incrementQuantity() {
     addToCart(props.product);
 }

@@ -19,6 +19,7 @@ defineProps<{
 <style lang="scss">
 .counter {
     display: flex;
+    width: 100%;
     height: 38px;
     padding: 8px;
     justify-content: space-between;
