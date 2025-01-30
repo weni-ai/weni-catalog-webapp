@@ -1,5 +1,6 @@
 export interface ProductItem{
     title: string,
+    description: string,
     image: string,
     discount?: number,
     owner: string,
