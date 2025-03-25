@@ -16,9 +16,7 @@
             </div>
         </div>
         <div class="card__button">
-            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" size="small" @click="handleAddToCart">Adicionar</UnnnicButton>
-            <ItemCounter v-else :quantity="quantityInCart" @increment="incrementQuantity"
-                @decrement="decrementQuantity"></ItemCounter>
+            <UnnnicButton iconLeft="add-1" @click="handleAddToCart">{{ $t('add_to_cart') }}</UnnnicButton>
         </div>
     </div>
 </template>
