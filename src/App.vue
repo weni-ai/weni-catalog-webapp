@@ -8,8 +8,8 @@
 <script setup lang="ts">
 </script>
 
-<style scoped>
-@use './styles/reset.scss' as *;
+<style lang="scss">
+@import './styles/reset.scss';
 .logo {
   height: 6em;
   padding: 1.5em;
