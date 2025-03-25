@@ -14,7 +14,7 @@
             <div class="card__description__seller">{{ selledBy }}</div>
         </div>
         <div class="card__button">
-            <UnnnicButton iconLeft="add-1" @click="handleAddToCart">Adicionar</UnnnicButton>
+            <UnnnicButton iconLeft="add-1" @click="handleAddToCart">{{ $t('add_to_cart') }}</UnnnicButton>
         </div>
     </div>
 </template>

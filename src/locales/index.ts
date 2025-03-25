@@ -5,7 +5,7 @@ import es from './es-ES.json';
 
 type MessageSchema = typeof en;
 
-export const i18n = createI18n<[MessageSchema], 'en' | 'pt-BR' | 'es-ES'>({
+const i18n = createI18n<[MessageSchema], 'en' | 'pt-BR' | 'es-ES'>({
   legacy: false,
   locale: 'en',
   fallbackLocale: 'en',
@@ -15,3 +15,5 @@ export const i18n = createI18n<[MessageSchema], 'en' | 'pt-BR' | 'es-ES'>({
     'es-ES': es,
   },
 });
+
+export default i18n;

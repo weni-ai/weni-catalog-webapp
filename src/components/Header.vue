@@ -1,19 +1,17 @@
 <template>
     <header class="header">
-        <div class="header__title">
+        <header class="header__title">
             <img class="header__title__logo" src="../assets/weni-logo.svg" alt="" />
-            <p class="header__title__text">Weni Store</p>
-        </div>
-        <div class="header__cart">
-            <img src="../assets/shopping_cart.svg" alt="" @click="teste" />
-        </div>
+            <p class="header__title__text">{{ $t('header.title') }}</p>
+        </header>
+        <section class="header__cart">
+            <img src="../assets/shopping_cart.svg" alt="" @click="toggleOpenCart" />
+        </section>
     </header>
 </template>
 
 <script setup lang="ts">
-const teste = () => {
-    console.log("teste");
-};
+const toggleOpenCart = () => {};
 </script>
 
 <style lang="scss">
@@ -44,7 +42,6 @@ const teste = () => {
         @media (min-width: 768px) {
             position: absolute;
             left: 50%;
-            /* Centraliza horizontalmente */
             transform: translateX(-50%);
         }
 
