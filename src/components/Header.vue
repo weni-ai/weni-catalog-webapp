@@ -44,7 +44,6 @@ const teste = () => {
         @media (min-width: 768px) {
             position: absolute;
             left: 50%;
-            /* Centraliza horizontalmente */
             transform: translateX(-50%);
         }
 
