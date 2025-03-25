@@ -9,6 +9,7 @@
 </script>
 
 <style scoped>
+@use './styles/reset.scss' as *;
 .logo {
   height: 6em;
   padding: 1.5em;
