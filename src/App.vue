@@ -1,4 +1,3 @@
-
 <template>
   <main>
     <RouterView />
@@ -9,7 +8,9 @@
 </script>
 
 <style lang="scss">
+@import '@weni/unnnic-system/src/assets/scss/unnnic.scss';
 @import './styles/reset.scss';
+
 .logo {
   height: 6em;
   padding: 1.5em;
