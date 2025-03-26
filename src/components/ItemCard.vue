@@ -3,19 +3,21 @@
         <div class="card__discount">
             {{ discountTitle }}
         </div>
-            <div class="card__image">
-                <img src="../assets/model.png" alt="">
-            </div>
-            <div class="card__description">
-                <div class="card__description__title">{{ product.title }}</div>
-                <div class="card__description__owner">{{ product.owner }}</div>
-                <div class="card__description__old_value">{{ oldValueTitle }}</div>
-                <div class="card__description__new_value">{{ newValue }}</div>
-                <div class="card__description__seller">{{ selledBy }}</div>
-            </div>
-            <div class="card__button">
-                <UnnnicButton iconLeft="add-1" @click="handleAddToCart">{{ $t('add_to_cart') }}</UnnnicButton>
-            </div>
+        <div class="card__image">
+            <img src="../assets/model.png" alt="">
+        </div>
+        <div class="card__description">
+            <div class="card__description__title">{{ product.title }}</div>
+            <div class="card__description__owner">{{ product.owner }}</div>
+            <div class="card__description__old_value">{{ oldValueTitle }}</div>
+            <div class="card__description__new_value">{{ newValue }}</div>
+            <div class="card__description__seller">{{ selledBy }}</div>
+        </div>
+        <div class="card__button">
+            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" @click="handleAddToCart">Adicionar</UnnnicButton>
+            <ItemCounter v-else :quantity="quantityInCart" @increment="incrementQuantity"
+                @decrement="decrementQuantity"></ItemCounter>
+        </div>
     </div>
 </template>
 
