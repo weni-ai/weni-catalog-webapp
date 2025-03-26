@@ -1,5 +1,7 @@
 {
-    "add_to_cart": "Add to cart",
+    "item_card": {
+        "add_to_cart": "Add to cart"
+    },
     "header": {
         "title": "Weni Store"
     },
