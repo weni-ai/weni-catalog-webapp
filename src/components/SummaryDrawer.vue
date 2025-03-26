@@ -1,18 +1,20 @@
 <template>
-    <BottomDrawer :isOpen="isOpen">
-        <div class="data">
-            <div class="data__title">Subtotal</div>
-            <div class="data__values">
-                <div class="data__values__total">R$ {{ totalValue }}</div>
-                <div class="data__values__count"> / {{ itemCount }} itens</div>
+    <div v-if="isOpen" class="drawer" @click.stop>
+        <div class="drawer__content">
+            <div class="drawer__content__data">
+                <div class="drawer__content__data__title">{{ $t('summary_drawer.total') }}</div>
+                <div class="drawer__content__data__values">
+                    <div class="drawer__content__data__values__total">R$ {{ totalValue }}</div>
+                    <div class="drawer__content__data__values__count"> / {{ itemCount }} itens</div>
+                </div>
+            </div>
+            <div class="drawer__content__button">
+                <UnnnicButton iconLeft="messaging-whatsapp-1">
+                    {{ $t('summary_drawer.finish_order') }}
+                </UnnnicButton>
             </div>
         </div>
-        <div class="button">
-            <UnnnicButton iconLeft="messaging-whatsapp-1">
-                Finalizar pedido
-            </UnnnicButton>
-        </div>
-    </BottomDrawer>
+    </div>
 </template>
 
 <script lang="ts" setup>

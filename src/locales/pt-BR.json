@@ -2,5 +2,9 @@
     "add_to_cart": "Adicionar ao carrinho",
     "header": {
         "title": "Loja Weni"
+    },
+    "summary_drawer": {
+        "finish_order": "Finalizar pedido",
+        "total": "Total"
     }
 }

@@ -1,20 +1,17 @@
 <template>
     <div class="counter">
         <div class="counter__delete">
-            <Subtract v-if="quantity > 1" :color="'#00A49F'" @click="$emit('decrement')" />
-            <Trash v-else :color="'#00A49F'" @click="$emit('decrement')" />
+            <UnnnicIcon v-if="quantity > 1" icon="subtract-1" scheme="weni-600" @click="$emit('decrement')" clickable/>
+            <UnnnicIcon v-else icon="bin-1-1" scheme="weni-600" @click="$emit('decrement')" clickable/>
         </div>
         <div class="counter__quantity">{{ quantity }}</div>
         <div class="counter__add">
-            <Add :color="'#00A49F'" @click="$emit('increment')" />
+            <UnnnicIcon icon="add-1" scheme="weni-600" @click="$emit('increment')" clickable/>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import Trash from '../assets/icons/Trash.vue';
-import Subtract from '../assets/icons/Subtract.vue';
-import Add from '../assets/icons/Add.vue';
 defineProps<{
     quantity: number,
 }>()
