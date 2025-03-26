@@ -60,7 +60,9 @@ function handleAddToCart() {
         align-items: center;
         border-radius: 0 0 $unnnic-border-radius-md $unnnic-border-radius-md;
         background: $unnnic-color-aux-green-100;
-        font-size: 10px;
+        font-size: $unnnic-font-size-body-md;
+        color: $unnnic-color-aux-green-900;
+        align-self: flex-end;
         width: 100%;
     }
 
@@ -74,24 +76,18 @@ function handleAddToCart() {
             text-overflow: ellipsis;
             color: $unnnic-color-neutral-black;
             white-space: normal;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 22px;
+            font-size: $unnnic-font-size-body-md;
         }
 
         &__owner,
         &__seller {
             color: $unnnic-color-neutral-clean;
-            font-size: 12px;
-            font-weight: 400;
-            line-height: 20px;
+            font-size: $unnnic-font-size-body-md;
         }
 
         &__old_value {
             color: $unnnic-color-neutral-cloudy;
-            font-size: 10px;
-            font-weight: 400;
-            line-height: 20px;
+            font-size: $unnnic-font-size-body-md;
             text-decoration: line-through;
         }
 
@@ -99,7 +95,6 @@ function handleAddToCart() {
                 color: $unnnic-color-weni-600;
             font-size: $unnnic-font-size-body-lg;
             font-weight: $unnnic-font-weight-bold;
-            line-height: $unnnic-line-height-md;
         }
     }
 
