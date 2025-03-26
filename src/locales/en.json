@@ -2,5 +2,9 @@
     "add_to_cart": "Add to cart",
     "header": {
         "title": "Weni Store"
+    },
+    "summary_drawer": {
+        "finish_order": "Finish order",
+        "total": "Total"
     }
 }
