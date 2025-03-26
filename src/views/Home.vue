@@ -53,12 +53,11 @@ const totalValue = computed(() => {
 
 
 <style lang="scss">
-.home {
-    &__search {
-        margin: 16px;
-
-        @media (min-width: 768px) {
-            margin: 24px 32px 0 32px;
+.home{
+    &__search{
+        margin: $unnnic-spacing-sm;
+        @media (min-width: $tablet-width) {
+            margin: $unnnic-spacing-md $unnnic-spacing-lg 0 $unnnic-spacing-lg;
         }
     }
 }
