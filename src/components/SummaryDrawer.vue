@@ -1,18 +1,20 @@
 <template>
-    <BottomDrawer :isOpen="isOpen">
-        <div class="data">
-            <div class="data__title">Subtotal</div>
-            <div class="data__values">
-                <div class="data__values__total">R$ {{ totalValue }}</div>
-                <div class="data__values__count"> / {{ itemCount }} itens</div>
+    <div v-if="isOpen" class="drawer" @click.stop>
+        <div class="drawer__content">
+            <div class="drawer__content__data">
+                <div class="drawer__content__data__title">{{ $t('summary_drawer.total') }}</div>
+                <div class="drawer__content__data__values">
+                    <div class="drawer__content__data__values__total">R$ {{ totalValue }}</div>
+                    <div class="drawer__content__data__values__count"> / {{ itemCount }} itens</div>
+                </div>
+            </div>
+            <div class="drawer__content__button">
+                <UnnnicButton iconLeft="messaging-whatsapp-1">
+                    {{ $t('summary_drawer.finish_order') }}
+                </UnnnicButton>
             </div>
         </div>
-        <div class="button">
-            <UnnnicButton iconLeft="messaging-whatsapp-1">
-                Finalizar pedido
-            </UnnnicButton>
-        </div>
-    </BottomDrawer>
+    </div>
 </template>
 
 <script lang="ts" setup>
@@ -27,11 +29,30 @@ defineProps<{
 </script>
 
 <style lang="scss" scoped>
-.data {
+.drawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 80%;
+    background: white;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: slide-up 0.3s ease forwards;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    gap: 4px;
+    padding: $unnnic-spacing-sm;
+    font-family: $unnnic-font-family-secondary;
+
+    &__content {
+        display: flex;
+        width: 100%;
+
+        &__data {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: $unnnic-spacing-nano;
 
     &__title {
         font-size: $unnnic-font-size-body-gt;
@@ -39,11 +60,11 @@ defineProps<{
         font-weight: $unnnic-font-weight-black;
     }
 
-    &__values {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        gap: 8px;
+            &__values {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                gap: $unnnic-spacing-xs;
 
         &__total {
             font-size: $unnnic-font-size-body-lg;
@@ -57,10 +78,11 @@ defineProps<{
     }
 }
 
-.button {
-    :deep(.unnnic-button) {
-        background-color: var(--Green-color-aux-green-500, #38A169);
-        width: 160px;
+        &__button {
+            :deep(.unnnic-button) {
+                background-color: $unnnic-color-aux-green-500;
+            }
+        }
     }
 }
 

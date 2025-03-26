@@ -1,0 +1,12 @@
+{
+    "item_card": {
+        "add_to_cart": "Adicionar"
+    },
+    "header": {
+        "title": "Loja Weni"
+    },
+    "summary_drawer": {
+        "finish_order": "Finalizar pedido",
+        "total": "Total"
+    }
+}

@@ -15,14 +15,14 @@ import ItemCard from './ItemCard.vue';
 .items {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0px 8px;
+    padding: 0px $unnnic-spacing-xs;
     align-items: flex-start;
-    gap: 8px;
+    gap: $unnnic-spacing-xs;
     align-self: stretch;
 
-    @media (min-width: 768px) {
+    @media (min-width: $tablet-width) {
         grid-template-columns: repeat(5, 1fr);
-        padding: 24px 32px 0px 32px;
+        padding: $unnnic-spacing-md $unnnic-spacing-lg 0px $unnnic-spacing-lg;
     }
 }
 </style>

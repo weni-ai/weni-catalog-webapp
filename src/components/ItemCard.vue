@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="card__button">
-            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" size="small" @click="handleAddToCart">Adicionar</UnnnicButton>
+            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" @click="handleAddToCart">{{ $t('item_card.add_to_cart') }}</UnnnicButton>
             <ItemCounter v-else :quantity="quantityInCart" @increment="incrementQuantity"
                 @decrement="decrementQuantity"></ItemCounter>
         </div>
@@ -80,71 +80,63 @@ function decrementQuantity() {
 <style lang="scss" scoped>
 .card {
     display: flex;
-    padding: 0 8px 16px;
     flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    gap: $unnnic-spacing-xs;
+    padding: 0 $unnnic-spacing-sm $unnnic-spacing-sm;
     flex: 1 0 0;
-    border-radius: 4px;
-    border: 1px solid var(--color-neutral-soft, #E2E6ED);
+    height: 100%;
+    border-radius: $unnnic-border-radius-sm;
+    border: 1px solid $unnnic-color-neutral-soft;
+    font-family: $unnnic-font-family-secondary;
 
-    &__clickable {
-        &__discount {
-            display: flex;
-            padding: 4px var(--border-radius-md, 8px);
-            justify-content: center;
-            align-items: center;
-            border-radius: 0 0 var(--border-radius-md, 8px) var(--border-radius-md, 8px);
-            background: var(--Green-color-aux-green-100, #C6F6D5);
-            font-size: 10px;
-            width: 100%;
-        }
-
-        &__image{
-            display: flex;
-            justify-content: center;
-        }
-
-        &__description {
-            &__title {
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                color: var(--color-neutral-black, #272B33);
-                white-space: normal;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 22px;
-            }
-
-            &__owner,
-            &__seller {
-                color: var(--color-neutral-clean, #9CACCC);
-                font-size: 12px;
-                font-weight: 400;
-                line-height: 20px;
-            }
-
-            &__old_value {
-                color: var(--color-neutral-cloudy, #67738B);
-                font-size: 10px;
-                font-weight: 400;
-                line-height: 20px;
-                text-decoration: line-through;
-            }
-
-            &__new_value {
-                color: #028380;
-                font-size: 16px;
-                font-weight: 700;
-                line-height: 24px;
-            }
-        }
+    &__image {
+        align-self: center;
     }
 
+    &__discount {
+        display: flex;
+        padding: 4px $unnnic-border-radius-md;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0 0 $unnnic-border-radius-md $unnnic-border-radius-md;
+        background: $unnnic-color-aux-green-100;
+        font-size: $unnnic-font-size-body-md;
+        color: $unnnic-color-aux-green-900;
+        align-self: flex-end;
+        width: 100%;
+    }
 
+    &__description {
+        flex: 1;
+        &__title {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: $unnnic-color-neutral-black;
+            white-space: normal;
+            font-size: $unnnic-font-size-body-md;
+        }
+
+        &__owner,
+        &__seller {
+            color: $unnnic-color-neutral-clean;
+            font-size: $unnnic-font-size-body-md;
+        }
+
+        &__old_value {
+            color: $unnnic-color-neutral-cloudy;
+            font-size: $unnnic-font-size-body-md;
+            text-decoration: line-through;
+        }
+
+        &__new_value {
+                color: $unnnic-color-weni-600;
+            font-size: $unnnic-font-size-body-lg;
+            font-weight: $unnnic-font-weight-bold;
+        }
+    }
 
     &__button {
         width: 100%;

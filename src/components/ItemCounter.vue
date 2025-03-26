@@ -1,16 +1,17 @@
 <template>
     <div class="counter">
-        <div class="counter__trash">
-            <UnnnicButtonIcon icon="bin-1-1" type="tertiary" size="small" @click="$emit('decrement')"/>
+        <div class="counter__delete">
+            <UnnnicIcon v-if="quantity > 1" icon="subtract-1" scheme="weni-600" @click="$emit('decrement')" clickable/>
+            <UnnnicIcon v-else icon="bin-1-1" scheme="weni-600" @click="$emit('decrement')" clickable/>
         </div>
         <div class="counter__quantity">{{ quantity }}</div>
         <div class="counter__add">
-            <UnnnicButtonIcon icon="add-1" type="tertiary" size="small"  @click="$emit('increment')"/>
+            <UnnnicIcon icon="add-1" scheme="weni-600" @click="$emit('increment')" clickable/>
         </div>
     </div>
 </template>
 
-<script script setup lang="ts">
+<script setup lang="ts">
 defineProps<{
     quantity: number,
 }>()
@@ -19,17 +20,20 @@ defineProps<{
 <style lang="scss">
 .counter {
     display: flex;
-    width: 100%;
-    height: 38px;
-    padding: 8px;
+    padding: $unnnic-spacing-xs;
     justify-content: space-between;
     align-items: center;
     align-self: stretch;
-    border-radius: 4px;
-    border: 1px solid var(--color-neutral-soft, #E2E6ED);
+    border-radius: $unnnic-border-radius-sm;
+    border: 1px solid $unnnic-color-neutral-soft;
+    color: $unnnic-color-neutral-black;
+    font-weight: $unnnic-font-weight-bold;
 
-    &__trash{
-        color: #00A49F
+    &__delete,
+    &__add {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
     }
 }
 </style>
