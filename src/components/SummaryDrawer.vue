@@ -27,11 +27,30 @@ defineProps<{
 </script>
 
 <style lang="scss" scoped>
-.data {
+.drawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 80%;
+    background: white;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: slide-up 0.3s ease forwards;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    gap: 4px;
+    padding: $unnnic-spacing-sm;
+    font-family: $unnnic-font-family-secondary;
+
+    &__content {
+        display: flex;
+        width: 100%;
+
+        &__data {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: $unnnic-spacing-nano;
 
     &__title {
         font-size: $unnnic-font-size-body-gt;
@@ -39,11 +58,11 @@ defineProps<{
         font-weight: $unnnic-font-weight-black;
     }
 
-    &__values {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        gap: 8px;
+            &__values {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                gap: $unnnic-spacing-xs;
 
         &__total {
             font-size: $unnnic-font-size-body-lg;
@@ -57,10 +76,11 @@ defineProps<{
     }
 }
 
-.button {
-    :deep(.unnnic-button) {
-        background-color: var(--Green-color-aux-green-500, #38A169);
-        width: 160px;
+        &__button {
+            :deep(.unnnic-button) {
+                background-color: $unnnic-color-aux-green-500;
+            }
+        }
     }
 }
 
