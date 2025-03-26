@@ -20,7 +20,7 @@ import ItemCard from './ItemCard.vue';
     gap: 8px;
     align-self: stretch;
 
-    @media (min-width: 768px) {
+    @media (min-width: $tablet-width) {
         grid-template-columns: repeat(5, 1fr);
         padding: 24px 32px 0px 32px;
     }

@@ -3,19 +3,19 @@
         <div class="card__discount">
             {{ discountTitle }}
         </div>
-        <div class="card__image">
-            <img src="../assets/model.png" alt="">
-        </div>
-        <div class="card__description">
-            <div class="card__description__title">{{ product.title }}</div>
-            <div class="card__description__owner">{{ product.owner }}</div>
-            <div class="card__description__old_value">{{ oldValueTitle }}</div>
-            <div class="card__description__new_value">{{ newValue }}</div>
-            <div class="card__description__seller">{{ selledBy }}</div>
-        </div>
-        <div class="card__button">
-            <UnnnicButton iconLeft="add-1" @click="handleAddToCart">{{ $t('add_to_cart') }}</UnnnicButton>
-        </div>
+            <div class="card__image">
+                <img src="../assets/model.png" alt="">
+            </div>
+            <div class="card__description">
+                <div class="card__description__title">{{ product.title }}</div>
+                <div class="card__description__owner">{{ product.owner }}</div>
+                <div class="card__description__old_value">{{ oldValueTitle }}</div>
+                <div class="card__description__new_value">{{ newValue }}</div>
+                <div class="card__description__seller">{{ selledBy }}</div>
+            </div>
+            <div class="card__button">
+                <UnnnicButton iconLeft="add-1" @click="handleAddToCart">{{ $t('add_to_cart') }}</UnnnicButton>
+            </div>
     </div>
 </template>
 
@@ -40,33 +40,39 @@ function handleAddToCart() {
 <style lang="scss" scoped>
 .card {
     display: flex;
-    padding: 0 8px 16px;
     flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    gap: $unnnic-spacing-xs;
+    padding: 0 $unnnic-spacing-sm $unnnic-spacing-sm;
     flex: 1 0 0;
-    border-radius: 4px;
-    border: 1px solid var(--color-neutral-soft, #E2E6ED);
+    height: 100%;
+    border-radius: $unnnic-border-radius-sm;
+    border: 1px solid $unnnic-color-neutral-soft;
+    font-family: $unnnic-font-family-secondary;
+
+    &__image {
+        align-self: center;
+    }
 
     &__discount {
         display: flex;
-        padding: 4px var(--border-radius-md, 8px);
+        padding: 4px $unnnic-border-radius-md;
         justify-content: center;
         align-items: center;
-        border-radius: 0 0 var(--border-radius-md, 8px) var(--border-radius-md, 8px);
-        background: var(--Green-color-aux-green-100, #C6F6D5);
+        border-radius: 0 0 $unnnic-border-radius-md $unnnic-border-radius-md;
+        background: $unnnic-color-aux-green-100;
         font-size: 10px;
         width: 100%;
     }
 
     &__description {
+        flex: 1;
         &__title {
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
-            color: var(--color-neutral-black, #272B33);
+            color: $unnnic-color-neutral-black;
             white-space: normal;
             font-size: 14px;
             font-weight: 400;
@@ -75,14 +81,14 @@ function handleAddToCart() {
 
         &__owner,
         &__seller {
-            color: var(--color-neutral-clean, #9CACCC);
+            color: $unnnic-color-neutral-clean;
             font-size: 12px;
             font-weight: 400;
             line-height: 20px;
         }
 
         &__old_value {
-            color: var(--color-neutral-cloudy, #67738B);
+            color: $unnnic-color-neutral-cloudy;
             font-size: 10px;
             font-weight: 400;
             line-height: 20px;
@@ -90,10 +96,10 @@ function handleAddToCart() {
         }
 
         &__new_value {
-            color: #028380;
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 24px;
+                color: $unnnic-color-weni-600;
+            font-size: $unnnic-font-size-body-lg;
+            font-weight: $unnnic-font-weight-bold;
+            line-height: $unnnic-line-height-md;
         }
     }
 

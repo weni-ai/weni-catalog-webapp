@@ -20,7 +20,7 @@ const searchInput = ref('')
 .home{
     &__search{
         margin: 16px;
-        @media (min-width: 768px) {
+        @media (min-width: $tablet-width) {
             margin: 24px 32px 0 32px;
         }
     }

@@ -18,18 +18,18 @@ const toggleOpenCart = () => {};
 .header {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 16px;
-    background-color: #00a49f;
+    gap: $unnnic-spacing-xs;
+    padding: $unnnic-spacing-sm;
+    background-color: $unnnic-color-weni-600;
     font-family: $unnnic-font-family-secondary;
-    font-weight: bold;
-    color: white;
+    font-weight: $unnnic-font-weight-bold;
+    color: $unnnic-color-neutral-white;
     position: relative;
 
-    @media (min-width: 768px) {
+    @media (min-width: $tablet-width) {
         justify-content: center;
-        padding: 24px 32px;
-        gap: 32px;
+        padding: $unnnic-spacing-md $unnnic-spacing-lg;
+        gap: $unnnic-spacing-lg;
         align-self: stretch;
     }
 
@@ -39,7 +39,7 @@ const toggleOpenCart = () => {};
         justify-content: center;
         align-items: center;
 
-        @media (min-width: 768px) {
+        @media (min-width: $tablet-width) {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -50,16 +50,16 @@ const toggleOpenCart = () => {};
         }
 
         &__text {
-            margin-left: 8px;
+            margin-left: $unnnic-spacing-xs;
         }
     }
 
     &__cart {
         margin-left: auto;
 
-        @media (min-width: 768px) {
+        @media (min-width: $tablet-width) {
             position: absolute;
-            right: 16px;
+            right: $unnnic-spacing-md;
         }
     }
 }
