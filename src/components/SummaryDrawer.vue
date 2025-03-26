@@ -39,7 +39,7 @@ defineProps<{
     animation: slide-up 0.3s ease forwards;
     display: flex;
     flex-direction: column;
-    padding: 16px;
+    padding: $unnnic-spacing-sm;
     font-family: $unnnic-font-family-secondary;
 
     &__content {
@@ -50,7 +50,7 @@ defineProps<{
             display: flex;
             flex-direction: column;
             width: 100%;
-            gap: 4px;
+            gap: $unnnic-spacing-nano;
 
             &__title {
                 font-size: $unnnic-font-size-body-gt;
@@ -62,7 +62,7 @@ defineProps<{
                 display: flex;
                 align-items: center;
                 flex-direction: row;
-                gap: 8px;
+                gap: $unnnic-spacing-xs;
 
                 &__total {
                     font-size: $unnnic-font-size-body-lg;
@@ -78,7 +78,7 @@ defineProps<{
 
         &__button {
             :deep(.unnnic-button) {
-                background-color:  var(--Green-color-aux-green-500, #38A169);
+                background-color: $unnnic-color-aux-green-500;
             }
         }
     }

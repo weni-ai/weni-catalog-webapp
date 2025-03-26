@@ -23,12 +23,11 @@ defineProps<{
 <style lang="scss">
 .counter {
     display: flex;
-    height: 38px;
-    padding: 8px;
+    padding: $unnnic-spacing-xs;
     justify-content: space-between;
     align-items: center;
     align-self: stretch;
-    border-radius: 4px;
+    border-radius: $unnnic-border-radius-sm;
     border: 1px solid $unnnic-color-neutral-soft;
     color: $unnnic-color-neutral-black;
     font-weight: $unnnic-font-weight-bold;
