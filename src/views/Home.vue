@@ -19,9 +19,9 @@ const searchInput = ref('')
 <style lang="scss">
 .home{
     &__search{
-        margin: 16px;
+        margin: $unnnic-spacing-sm;
         @media (min-width: $tablet-width) {
-            margin: 24px 32px 0 32px;
+            margin: $unnnic-spacing-md $unnnic-spacing-lg 0 $unnnic-spacing-lg;
         }
     }
 }
