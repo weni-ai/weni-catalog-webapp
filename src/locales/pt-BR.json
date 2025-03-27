@@ -1,12 +1,16 @@
 {
-    "item_card": {
-        "add_to_cart": "Adicionar"
-    },
     "header": {
         "title": "Loja Weni"
     },
     "summary_drawer": {
         "finish_order": "Finalizar pedido",
         "total": "Total"
+    },
+    "currency": "R$",
+    "item_card": {
+        "discount": "desconto",
+        "old_value": "valor antigo",
+        "selled_by": "vendido por",
+        "add_to_cart": "Adicionar"
     }
 }

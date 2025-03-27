@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts" setup>
-
 defineProps<{
     isOpen: boolean,
     itemCount: number,
@@ -52,11 +51,11 @@ defineProps<{
             width: 100%;
             gap: $unnnic-spacing-nano;
 
-            &__title {
-                font-size: $unnnic-font-size-body-gt;
-                color: var(--color-neutral-clean, #9CACCC);
-                font-weight: $unnnic-font-weight-black;
-            }
+    &__title {
+        font-size: $unnnic-font-size-body-gt;
+        color: var(--color-neutral-clean, #9CACCC);
+        font-weight: $unnnic-font-weight-black;
+    }
 
             &__values {
                 display: flex;
@@ -64,17 +63,17 @@ defineProps<{
                 flex-direction: row;
                 gap: $unnnic-spacing-xs;
 
-                &__total {
-                    font-size: $unnnic-font-size-body-lg;
-                    color: var(--color-neutral-black, #272B33);
-                }
-
-                &__count {
-                    font-size: $unnnic-font-size-body-gt;
-                    color: var(--color-neutral-clean, #9CACCC);
-                }
-            }
+        &__total {
+            font-size: $unnnic-font-size-body-lg;
+            color: var(--color-neutral-black, #272B33);
         }
+
+        &__count {
+            font-size: $unnnic-font-size-body-gt;
+            color: var(--color-neutral-clean, #9CACCC);
+        }
+    }
+}
 
         &__button {
             :deep(.unnnic-button) {
