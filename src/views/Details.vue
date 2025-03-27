@@ -1,30 +1,24 @@
 <template>
     <div class="details">
         <div class="details__search">
-            <UnnnicInput
-                v-model="searchInput"
-                iconLeft="search-1"
-                placeholder="Procurar produto"
-            />
+            <UnnnicInput v-model="searchInput" iconLeft="search-1" placeholder="Procurar produto" />
         </div>
 
         <div class="details__breadcrumb">
-            <UnnnicBreadcrumb
-                :crumbs="breadcrumbItems"
-                @crumbClick="redirectTo"
-            />
+            <UnnnicBreadcrumb :crumbs="breadcrumbItems" @crumbClick="redirectTo" />
         </div>
 
         <div class="details__container">
             <div class="details__container__images">
                 <Carousel :items="images">
                     <template #default="{ item }">
-                        <img :src="item.src" :alt="item.alt" class="carousel-img" style="max-height: 100%; max-width: 440px; object-fit: cover;" />
+                        <img :src="item.src" :alt="item.alt" class="carousel-img"
+                            style="max-height: 100%; max-width: 440px; object-fit: cover;" />
                     </template>
                 </Carousel>
             </div>
 
-            <div v-if="!isWideScreen" class="details__container__about">
+            <div class="details__container__about">
                 <div class="details__container__about__title">
                     {{ selectedItem.title }}
                 </div>
@@ -41,50 +35,44 @@
                 <div class="details__container__about__description">
                     {{ selectedItem.description }}
                 </div>
-                
-                <div class="details__container__about__button">
+                <div class="details__container__about__button" v-if="!isWideScreen">
                     <UnnnicButton iconRight="add-1" size="small" @click="handleAddToCart">
-                        Adicionar ao carrinho
+                        {{ $t('item_card.add_to_cart') }}
                     </UnnnicButton>
-                    <ItemCounter class="details__container__about__button__counter" :quantity="quantityInCart" @increment="incrementQuantity" @decrement="decrementQuantity" />
+                    <ItemCounter class="details__container__about__button__counter" :quantity="quantityInCart"
+                        @increment="incrementQuantity" @decrement="decrementQuantity" />
                 </div>
             </div>
+
         </div>
-    </div>
 
-    <div v-if="isWideScreen">
-        <BottomDrawer :isOpen="true">
-            <div class="drawer">
-                <div class="drawer__text">
-                    <div class="drawer__text__from">
-                        de R${{ selectedItem.oldValue }},00 por
+        <div v-if="isWideScreen">
+            <BottomDrawer :isOpen="true">
+                <div class="drawer">
+                    <div class="drawer__text">
+                        <div class="drawer__text__from">
+                            de R${{ selectedItem.oldValue }},00 por
+                        </div>
+                        <div class="drawer__text__to">
+                            R${{ selectedItem.value }},00
+                        </div>
                     </div>
-                    <div class="drawer__text__to">
-                        R${{ selectedItem.value }},00
+
+                    <div class="drawer__button">
+                        <div class="drawer__button__add">
+                            <UnnnicButton iconRight="add-1" size="small" @click="handleAddToCart">
+                                {{ $t('item_card.add_to_cart') }}
+                            </UnnnicButton>
+                        </div>
+
+                        <div v-if="quantityInCart" class="drawer__button__counter">
+                            <ItemCounter :quantity="quantityInCart" @increment="incrementQuantity"
+                                @decrement="decrementQuantity" />
+                        </div>
                     </div>
                 </div>
-
-                <div class="drawer__button">
-                    <div class="drawer__button__add">
-                        <UnnnicButton
-                            iconRight="add-1"
-                            size="small"
-                            @click="handleAddToCart"
-                        >
-                            Add ao carrinho
-                        </UnnnicButton>
-                    </div>
-
-                    <div v-if="quantityInCart" class="drawer__button__counter">
-                        <ItemCounter
-                            :quantity="quantityInCart"
-                            @increment="incrementQuantity"
-                            @decrement="decrementQuantity"
-                        />
-                    </div>
-                </div>
-            </div>
-        </BottomDrawer>
+            </BottomDrawer>
+        </div>
     </div>
 </template>
 
@@ -244,6 +232,10 @@ function redirectTo(crumb: any) {
             &__description {
                 font-size: $unnnic-font-size-body-md;
                 color: var(--color-neutral-cloudy, #67738B);
+            }
+
+            @media (min-width: 768px) {
+                flex-direction: column;
             }
 
             &__button {
