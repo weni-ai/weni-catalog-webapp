@@ -1,12 +1,12 @@
 <template>
     <div class="counter">
         <div class="counter__delete">
-            <UnnnicIcon v-if="quantity > 1" icon="subtract-1" scheme="weni-600" @click="$emit('decrement')" clickable/>
-            <UnnnicIcon v-else icon="bin-1-1" scheme="weni-600" @click="$emit('decrement')" clickable/>
+            <UnnnicIcon data-test="decrement-button" v-if="quantity > 1" icon="subtract-1" scheme="weni-600" @click="$emit('decrement')" clickable/>
+            <UnnnicIcon data-test="decrement-button" v-else icon="bin-1-1" scheme="weni-600" @click="$emit('decrement')" clickable/>
         </div>
         <div class="counter__quantity">{{ quantity }}</div>
         <div class="counter__add">
-            <UnnnicIcon icon="add-1" scheme="weni-600" @click="$emit('increment')" clickable/>
+            <UnnnicIcon data-test="increment-button" icon="add-1" scheme="weni-600" @click="$emit('increment')" clickable/>
         </div>
     </div>
 </template>
