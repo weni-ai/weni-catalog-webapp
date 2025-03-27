@@ -1,0 +1,102 @@
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { mount } from '@vue/test-utils'
+import { createTestingPinia } from '@pinia/testing'
+import type { TestingPinia } from '@pinia/testing'
+import CartView from '../components/CartView.vue'
+import CartItem from '../components/CartItem.vue'
+
+vi.mock('../utils/cart.ts', () => ({
+    clearCart: vi.fn(),
+}))
+
+vi.stubGlobal('window', {
+    innerWidth: 500,
+    Event: class Event {
+        type: string;
+        constructor(type: string) {
+            this.type = type;
+        }
+    }
+})
+
+const mockItems = [
+    {
+        item: {
+            id: '1',
+            name: 'Dorflex Max',
+            price: 164,
+            originalPrice: 169,
+            discount: 5,
+            quantity: 1,
+            image: 'https://link.com/dorflex.png',
+            discountLabel: '5% de desconto',
+            seller: 'Farmácias Weni',
+        },
+    },
+    {
+        item: {
+            id: '2',
+            name: 'Dorflex Max',
+            price: 164,
+            originalPrice: 169,
+            discount: 5,
+            quantity: 2,
+            image: 'https://link.com/dorflex.png',
+            discountLabel: '5% de desconto',
+            seller: 'Farmácias Weni',
+        },
+    },
+]
+
+describe('CartView.vue', () => {
+    let pinia: TestingPinia
+
+    beforeEach(() => {
+        pinia = createTestingPinia({
+            stubActions: false,
+            initialState: {
+                cart: {
+                    items: mockItems,
+                },
+            },
+        })
+    })
+
+    it('should group products by seller and render them', () => {
+        const wrapper = mount(CartView, {
+            global: {
+                plugins: [pinia],
+            },
+        })
+
+        expect(wrapper.text()).toContain('Produtos entregues por Farmácias Weni')
+        expect(wrapper.findAllComponents(CartItem)).toHaveLength(2)
+    })
+
+    it('should show the header with "Meu carrinho" and "Limpar carrinho" if innerWidth < 768', () => {
+        const wrapper = mount(CartView, {
+            global: {
+                plugins: [pinia],
+            },
+        })
+
+        expect(wrapper.find('.cart__header__title').text()).toBe('Meu carrinho')
+        expect(wrapper.text()).toContain('Limpar carrinho')
+    })
+
+    // it('should call clearCart when "Limpar carrinho" button is clicked', async () => {
+    //     const wrapper = mount(CartView, {
+    //         global: {
+    //             plugins: [pinia],
+    //             stubs: {
+    //                 'UnnnicButton': {
+    //                     template: '<button class="cart__header__button"><slot /></button>'
+    //                 }
+    //             }
+    //         },
+    //     })
+
+    //     await wrapper.find('.cart__header__button').trigger('click')
+    //     expect(mockClearCart).toHaveBeenCalled()
+    // })
+})
