@@ -1,22 +1,22 @@
 <template>
     <div class="card">
-        <div class="card_clickable" @click="redirectToDetails">
-            <div class="card__clickable__discount">
-                {{ discountTitle }}
-            </div>
-            <div class="card__clickable__image">
+        <div class="card__discount">
+            {{ discountTitle }}
+        </div>
+        <div class="card__content" @click="redirectToDetails">
+            <div class="card__content__image">
                 <img src="../assets/model.png" alt="">
             </div>
-            <div class="card__clickable__description">
-                <div class="card__clickable__description__title">{{ product.title }}</div>
-                <div class="card__clickable__description__owner">{{ product.owner }}</div>
-                <div class="card__clickable__description__old_value">{{ oldValueTitle }}</div>
-                <div class="card__clickable__description__new_value">{{ newValue }}</div>
-                <div class="card__clickable__description__seller">{{ selledBy }}</div>
+            <div class="card__content__description">
+                <div class="card__content__description__title">{{ product.title }}</div>
+                <div class="card__content__description__owner">{{ product.owner }}</div>
+                <div class="card__content__description__old_value">{{ oldValueTitle }}</div>
+                <div class="card__content__description__new_value">{{ newValue }}</div>
+                <div class="card__content__description__seller">{{ selledBy }}</div>
             </div>
         </div>
         <div class="card__button">
-            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" @click="handleAddToCart">{{ $t('item_card.add_to_cart') }}</UnnnicButton>
+            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" @click="handleAddToCart">Adicionar</UnnnicButton>
             <ItemCounter v-else :quantity="quantityInCart" @increment="incrementQuantity"
                 @decrement="decrementQuantity"></ItemCounter>
         </div>
@@ -39,7 +39,7 @@ const props = defineProps<{
 const router = useRouter()
 const itemStore = useItemsStore()
 
-function redirectToDetails(){
+function redirectToDetails() {
     itemStore.selectItem(props.product)
 
     router.push('/details')
@@ -52,15 +52,15 @@ const selledBy = `Vendido por ${props.product.seller}`
 
 const cartStore = useCartStore();
 
+const quantityInCart = computed(() => {
+    const item = cartStore.items.find(i => i.id === props.product.id);
+    return item ? item.qtd : 0;
+});
 
 function handleAddToCart() {
     addToCart(props.product);
 }
 
-const quantityInCart = computed(() => {
-    const item = cartStore.items.find(i => i.id === props.product.id);
-    return item ? item.qtd : 0;
-});
 function incrementQuantity() {
     addToCart(props.product);
 }
@@ -88,10 +88,9 @@ function decrementQuantity() {
     border-radius: $unnnic-border-radius-sm;
     border: 1px solid $unnnic-color-neutral-soft;
     font-family: $unnnic-font-family-secondary;
+    cursor: pointer;
 
-    &__image {
-        align-self: center;
-    }
+
 
     &__discount {
         display: flex;
@@ -106,40 +105,74 @@ function decrementQuantity() {
         width: 100%;
     }
 
-    &__description {
-        flex: 1;
-        &__title {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            color: $unnnic-color-neutral-black;
-            white-space: normal;
-            font-size: $unnnic-font-size-body-md;
-        }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: $unnnic-spacing-xs;
 
-        &__owner,
-        &__seller {
-            color: $unnnic-color-neutral-clean;
-            font-size: $unnnic-font-size-body-md;
-        }
+        &__description {
+            flex: 1;
+            gap: $unnnic-spacing-sm;
 
-        &__old_value {
-            color: $unnnic-color-neutral-cloudy;
-            font-size: $unnnic-font-size-body-md;
-            text-decoration: line-through;
-        }
+            &__title {
+                flex: 1;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: $unnnic-color-neutral-black;
+                white-space: normal;
+                font-size: $unnnic-font-size-body-lg;
+                height: auto;
 
-        &__new_value {
+                @media (min-width: $tablet-width) {
+                    min-height: 3em;
+                }
+            }
+
+            &__owner,
+            &__seller {
+                color: $unnnic-color-neutral-clean;
+                font-size: $unnnic-font-size-body-md;
+
+                @media (min-width: $tablet-width) {
+                    justify-self: center;
+                }
+            }
+
+            &__old_value {
+                color: $unnnic-color-neutral-cloudy;
+                font-size: $unnnic-font-size-body-md;
+                text-decoration: line-through;
+
+                @media (min-width: $tablet-width) {
+                    justify-self: center;
+                }
+            }
+
+            &__new_value {
                 color: $unnnic-color-weni-600;
-            font-size: $unnnic-font-size-body-lg;
-            font-weight: $unnnic-font-weight-bold;
+                font-size: $unnnic-font-size-body-lg;
+                font-weight: $unnnic-font-weight-bold;
+
+                @media (min-width: $tablet-width) {
+                    justify-self: center;
+                }
+            }
+        }
+
+        &__image {
+            align-self: center;
         }
     }
 
+
     &__button {
+        display: flex;
         width: 100%;
+        height: 100%;
+        align-items: flex-end;
 
         :deep(.unnnic-button) {
             width: 100%;
