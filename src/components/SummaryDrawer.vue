@@ -18,9 +18,6 @@
 </template>
 
 <script lang="ts" setup>
-import BottomDrawer from './BottomDrawer.vue';
-
-
 defineProps<{
     isOpen: boolean,
     itemCount: number,
