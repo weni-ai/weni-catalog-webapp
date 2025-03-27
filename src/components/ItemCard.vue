@@ -16,8 +16,8 @@
             </div>
         </div>
         <div class="card__button">
-            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" @click="handleAddToCart">Adicionar</UnnnicButton>
-            <ItemCounter v-else :quantity="quantityInCart" @increment="incrementQuantity"
+            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" @click="addToCart(props.product)">{{ $t('item_card.add_to_cart') }}</UnnnicButton>
+            <ItemCounter v-else :quantity="quantityInCart" @increment="addToCart(props.product)"
                 @decrement="decrementQuantity"></ItemCounter>
         </div>
     </div>
@@ -45,10 +45,10 @@ function redirectToDetails() {
     router.push('/details')
 }
 
-const discountTitle = `${props.product.discount}% de desconto`
-const oldValueTitle = ` de R$${props.product.oldValue},00`
-const newValue = `R$${props.product.value},00`
-const selledBy = `Vendido por ${props.product.seller}`
+const discountTitle = `${props.product.discount}% ${t('item_card.discount')}`
+const oldValueTitle = ` ${t('item_card.old_value')} ${t('currency')}${props.product.oldValue},00`
+const newValue = `${t('currency')}${props.product.value},00`
+const selledBy = `${t('item_card.selled_by')} ${props.product.seller}`
 
 const cartStore = useCartStore();
 
@@ -56,14 +56,6 @@ const quantityInCart = computed(() => {
     const item = cartStore.items.find(i => i.id === props.product.id);
     return item ? item.qtd : 0;
 });
-
-function handleAddToCart() {
-    addToCart(props.product);
-}
-
-function incrementQuantity() {
-    addToCart(props.product);
-}
 
 function decrementQuantity() {
     const item = cartStore.items.find(i => i.id === props.product.id);
