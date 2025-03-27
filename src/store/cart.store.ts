@@ -11,13 +11,13 @@ export const useCartStore = defineStore('cart', {
             this.items.push(item);
         },
         updateItemQuantity(id: string | number, quantity: number) {
-            const existingItem = this.items.find(item => item.id === id);
+            const existingItem = this.items.find(product => product.item.id === id);
             if (existingItem) {
                 existingItem.qtd += quantity;
             }
         },
         removeItem(id: string | number) {
-            this.items = this.items.filter(item => item.id !== id);
+            this.items = this.items.filter(product => product.item.id !== id);
         },
     },
 });
