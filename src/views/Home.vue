@@ -47,7 +47,7 @@ const itemCount = computed(() => {
 });
 
 const totalValue = computed(() => {
-    return cartItems.value.reduce((total, item) => total + item.price * item.qtd, 0);
+    return cartItems.value.reduce((total, item) => total + item.item.value * item.qtd, 0);
 });
 </script>
 

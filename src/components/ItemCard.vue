@@ -31,17 +31,16 @@ import { computed } from 'vue';
 import { useCartStore } from '../store/cart.store';
 import { useRouter } from 'vue-router';
 import { useItemsStore } from '../store/items.store';
-
+import { useI18n } from 'vue-i18n';
 const props = defineProps<{
     product: ProductItem
 }>()
 
 const router = useRouter()
 const itemStore = useItemsStore()
-
+const { t } = useI18n()
 function redirectToDetails() {
     itemStore.selectItem(props.product)
-
     router.push('/details')
 }
 
@@ -53,17 +52,17 @@ const selledBy = `${t('item_card.selled_by')} ${props.product.seller}`
 const cartStore = useCartStore();
 
 const quantityInCart = computed(() => {
-    const item = cartStore.items.find(i => i.id === props.product.id);
+    const item = cartStore.items.find(i => i.item.id === props.product.id);
     return item ? item.qtd : 0;
 });
 
 function decrementQuantity() {
-    const item = cartStore.items.find(i => i.id === props.product.id);
+    const item = cartStore.items.find(i => i.item.id === props.product.id);
     if (item) {
         if (item.qtd > 1) {
-            cartStore.updateItemQuantity(item.id, -1);
+            cartStore.updateItemQuantity(item.item.id, -1);
         } else {
-            cartStore.removeItem(item.id);
+            cartStore.removeItem(item.item.id);
         }
     }
 }
