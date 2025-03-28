@@ -9,7 +9,7 @@
         </section>
     </header>
 
-    <UnnnicDrawer :modelValue="isOpenCart" title="Meu carrinho" :showCloseButton="true" @update:modelValue="isOpenCart = $event" @close="isOpenCart = false">
+    <UnnnicDrawer :modelValue="isOpenCart" :title="$t('cart.title')" :showCloseButton="true" @update:modelValue="isOpenCart = $event" @close="isOpenCart = false">
         <template #content>
             <CartView />
         </template>

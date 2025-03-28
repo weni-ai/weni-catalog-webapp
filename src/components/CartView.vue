@@ -2,13 +2,13 @@
     <section class="cart">
         <header v-if="innerWidth < 768" class="cart__header">
             <p class="cart__header__title">Meu carrinho</p>
-            <UnnnicButton class="cart__header__button" type="tertiary" size="small" @click="clearCart">Limpar carrinho
+            <UnnnicButton class="cart__header__button" type="tertiary" size="small" @click="clearCart">{{ $t('cart.clearCart') }}
             </UnnnicButton>
         </header>
 
         <ul class="cart__items">
             <li class="cart__items__seller" v-for="(sellerItems, seller) in groupedItemsBySeller" :key="seller">
-                <p class="cart__items__seller__title">Produtos entregues por {{ seller }}</p>
+                <p class="cart__items__seller__title">{{ $t('cart.productsDeliveredBy') }} {{ seller }}</p>
                 <UnnnicDivider />
                 <ul class="cart__items__seller__item">
                     <CartItem v-for="item in sellerItems" :key="item.item.id" :product="item" />
@@ -113,8 +113,6 @@ const innerWidth = ref(window.innerWidth);
                 }
             }
         }
-
-
     }
 }
 </style>
