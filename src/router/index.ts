@@ -19,24 +19,6 @@ const router = createRouter({
             path: '/cart',
             name: 'cart',
             component: CartView,
-            props: () => {
-                return {
-                    items: [
-                        {
-                            id: 1,
-                            title: "Cloridrato de Sertralina 25mg 30 comprimidos Eurofarma Genérico",
-                            description: "A Sertralina é um antidepressivo da classe dos inibidores seletivos da recaptação de serotonina (ISRS), indicado para o tratamento da depressão, transtorno de ansiedade generalizada, transtorno do pânico, TOC e estresse pós-traumático. Atua aumentando os níveis de serotonina no cérebro, promovendo melhora do humor e alívio dos sintomas da ansiedade.",
-                            image: '',
-                            owner: 'Europharma',
-                            discount: 5,
-                            seller: 'Farma X',
-                            value: 164,
-                            oldValue: 169,
-                            quantity: 1
-                        },
-                    ]
-                }
-            }
         }
     ]
 });
