@@ -83,20 +83,4 @@ describe('CartView.vue', () => {
         expect(wrapper.find('.cart__header__title').text()).toBe('Meu carrinho')
         expect(wrapper.text()).toContain('Limpar carrinho')
     })
-
-    // it('should call clearCart when "Limpar carrinho" button is clicked', async () => {
-    //     const wrapper = mount(CartView, {
-    //         global: {
-    //             plugins: [pinia],
-    //             stubs: {
-    //                 'UnnnicButton': {
-    //                     template: '<button class="cart__header__button"><slot /></button>'
-    //                 }
-    //             }
-    //         },
-    //     })
-
-    //     await wrapper.find('.cart__header__button').trigger('click')
-    //     expect(mockClearCart).toHaveBeenCalled()
-    // })
 })
