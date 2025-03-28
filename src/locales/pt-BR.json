@@ -12,5 +12,10 @@
         "old_value": "valor antigo",
         "selled_by": "vendido por",
         "add_to_cart": "Adicionar"
+    },
+    "cart": {
+        "title": "Meu carrinho",
+        "clearCart": "Limpar carrinho",
+        "productsDeliveredBy": "Produtos entregues por"
     }
 }

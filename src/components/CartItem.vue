@@ -57,6 +57,7 @@ const quantityInCart = computed(() => {
         padding: $unnnic-spacing-xs;
         align-items: center;
         justify-content: center;
+        width: 187px;
 
         &__main {
             width: 100%;
