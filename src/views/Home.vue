@@ -8,7 +8,10 @@
         </div>
         <SummaryDrawer v-if="isMobile" :isOpen="isDrawerOpen" :itemCount="itemCount" :totalValue="totalValue" />
     </div>
-    <InventoryModal :product="{ item: inventoryProduct, qtd: 0 }" :open="open" @toggleModal="toggleModal" />
+    <InventoryModal v-if="pageType === 'desktop'" :product="{ item: inventoryProduct, qtd: 0 }" :open="open" @toggleModal="toggleModal" />
+    <BottomDrawer v-if="pageType === 'mobile'" :isOpen="open" :itemCount="itemCount" :totalValue="totalValue" @close="toggleModal" >
+        <InventoryView :product="{ item: inventoryProduct, qtd: 0 }" />
+    </BottomDrawer>
 </template>
 
 
@@ -19,6 +22,10 @@ import ItemsList from '../components/ItemsList.vue';
 import SummaryDrawer from '../components/SummaryDrawer.vue';
 import type { ProductItem } from '../types/Cart';
 import InventoryModal from '../components/InventoryModal.vue';
+import BottomDrawer from '../components/BottomDrawer.vue';
+import InventoryView from '../views/InventoryView.vue';
+
+
 const isMobile = ref(window.innerWidth < 768);
 const open = ref(false);
 const inventoryProduct = ref<ProductItem>({} as ProductItem);
@@ -34,6 +41,8 @@ onMounted(() => {
 onUnmounted(() => {
     window.removeEventListener('resize', updateScreenSize);
 });
+
+const pageType = computed(() => (isMobile.value ? 'mobile' : 'desktop'));
 
 const showInventoryModal = (product: ProductItem) => {
     inventoryProduct.value = product;
@@ -59,6 +68,7 @@ const totalValue = computed(() => {
 });
 
 const toggleModal = () => {
+    console.log('toggleModal');
     open.value = !open.value;
 }
 </script>
