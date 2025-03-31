@@ -4,10 +4,11 @@
             <UnnnicInput v-model="searchInput" iconLeft="search-1" placeholder="Procurar produto" />
         </div>
         <div class="home__items" :style="{ paddingBottom: isDrawerOpen ? `${drawerHeight/2}px` : '16px' }">
-            <ItemsList />
+            <ItemsList @showInventoryModal="showInventoryModal" />
         </div>
         <SummaryDrawer v-if="isMobile" :isOpen="isDrawerOpen" :itemCount="itemCount" :totalValue="totalValue" />
     </div>
+    <InventoryModal :product="{ item: inventoryProduct, qtd: 0 }" :open="open" @toggleModal="toggleModal" />
 </template>
 
 
@@ -16,10 +17,13 @@ import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useCartStore } from '../store/cart.store';
 import ItemsList from '../components/ItemsList.vue';
 import SummaryDrawer from '../components/SummaryDrawer.vue';
-
+import type { ProductItem } from '../types/Cart';
+import InventoryModal from '../components/InventoryModal.vue';
 const isMobile = ref(window.innerWidth < 768);
+const open = ref(false);
+const inventoryProduct = ref<ProductItem>({} as ProductItem);
 
-const updateScreenSize = () => {
+const updateScreenSize = () => {    
     isMobile.value = window.innerWidth < 768;
 };
 
@@ -31,6 +35,10 @@ onUnmounted(() => {
     window.removeEventListener('resize', updateScreenSize);
 });
 
+const showInventoryModal = (product: ProductItem) => {
+    inventoryProduct.value = product;
+    open.value = true;
+}
 
 const searchInput = ref('');
 
@@ -49,6 +57,10 @@ const itemCount = computed(() => {
 const totalValue = computed(() => {
     return cartItems.value.reduce((total, item) => total + item.item.value * item.qtd, 0);
 });
+
+const toggleModal = () => {
+    open.value = !open.value;
+}
 </script>
 
 

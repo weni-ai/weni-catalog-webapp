@@ -1,4 +1,5 @@
 // utils/cartUtils.ts
+import { itemsList } from '../mocks';
 import { useCartStore } from '../store/cart.store';
 import type { ProductItem, CartItem } from '../types/Cart';
 
@@ -33,4 +34,9 @@ export function reduceFromCart(product: ProductItem) {
 export function clearCart() {
     const cartStore = useCartStore();
     cartStore.items = [];
+}
+
+export function getSimilarProducts(product: ProductItem) {
+    const similarProducts = itemsList.filter(item => item.category === product.category && item.id !== product.id);
+    return similarProducts;
 }

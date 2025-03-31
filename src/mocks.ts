@@ -8,7 +8,9 @@ export const itemsList = [
         discount: 5,
         seller: 'Farma X',
         value: 164,
-        oldValue: 169
+        oldValue: 169,
+        availableQuantity: 1,
+        category: 'Antidepressivos'
     },
     {
         id: 2,
@@ -19,7 +21,9 @@ export const itemsList = [
         discount: 10,
         seller: 'Farmácia Popular',
         value: 12,
-        oldValue: 13
+        oldValue: 13,
+            availableQuantity: 6,
+        category: 'Analgésicos'
     },
     {
         id: 3,
@@ -30,7 +34,9 @@ export const itemsList = [
         discount: 15,
         seller: 'Drogaria ABC',
         value: 18,
-        oldValue: 21
+        oldValue: 21,
+        availableQuantity: 5,
+        category: 'Analgésicos'
     },
     {
         id: 4,
@@ -41,7 +47,9 @@ export const itemsList = [
         discount: 8,
         seller: 'Farmácia Total',
         value: 24,
-        oldValue: 26
+        oldValue: 26,
+        availableQuantity: 10,
+        category: 'Analgésicos'
     },
     {
         id: 5,
@@ -52,7 +60,9 @@ export const itemsList = [
         discount: 12,
         seller: 'Saúde Farma',
         value: 45,
-        oldValue: 51
+        oldValue: 51,
+        availableQuantity: 10,
+        category: 'Antacidos'
     },
     {
         id: 6,
@@ -63,7 +73,9 @@ export const itemsList = [
         discount: 5,
         seller: 'Farma Fácil',
         value: 22,
-        oldValue: 23
+        oldValue: 23,
+        availableQuantity: 7,
+        category: 'Hipertensivos'
     },
     {
         id: 7,
@@ -74,7 +86,9 @@ export const itemsList = [
         discount: 20,
         seller: 'Drogaria Central',
         value: 19,
-        oldValue: 24
+        oldValue: 24,
+        availableQuantity: 10,
+        category: 'Antidepressivos'
     },
     {
         id: 8,
@@ -85,7 +99,9 @@ export const itemsList = [
         discount: 10,
         seller: 'Farma Popular',
         value: 15,
-        oldValue: 17
+        oldValue: 17,
+        availableQuantity: 10,
+        category: 'Antialérgicos'
     },
     {
         id: 9,
@@ -96,7 +112,9 @@ export const itemsList = [
         discount: 18,
         seller: 'Drogaria Econômica',
         value: 32,
-        oldValue: 39
+        oldValue: 39,
+        availableQuantity: 10,
+        category: 'Antibióticos'
     },
     {
         id: 10,
@@ -107,7 +125,9 @@ export const itemsList = [
         discount: 15,
         seller: 'Farmácia da Saúde',
         value: 14,
-        oldValue: 16
+        oldValue: 16,
+        availableQuantity: 10,
+        category: 'Antialérgicos'
     },
     {
         id: 11,
@@ -129,7 +149,9 @@ export const itemsList = [
         discount: 7,
         seller: 'Farma X',
         value: 20,
-        oldValue: 22
+        oldValue: 22,
+        availableQuantity: 10,
+        category: 'Antialérgicos'
     },
     {
         id: 13,
@@ -140,6 +162,8 @@ export const itemsList = [
         discount: 7,
         seller: 'Farma X',
         value: 20,
-        oldValue: 22
+        oldValue: 22,
+        availableQuantity: 10,
+        category: 'Antialérgicos'
     }
 ];

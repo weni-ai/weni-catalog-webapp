@@ -8,24 +8,24 @@
                 <img src="../assets/model.png" alt="">
             </div>
             <div class="card__content__description">
-                <div class="card__content__description__title">{{ product.title }}</div>
-                <div class="card__content__description__owner">{{ product.owner }}</div>
+                <div class="card__content__description__title">{{ product.item.title }}</div>
+                <div class="card__content__description__owner">{{ product.item.owner }}</div>
                 <div class="card__content__description__old_value">{{ oldValueTitle }}</div>
                 <div class="card__content__description__new_value">{{ newValue }}</div>
                 <div class="card__content__description__seller">{{ selledBy }}</div>
             </div>
         </div>
         <div class="card__button">
-            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" @click="addToCart(props.product)">{{ $t('item_card.add_to_cart') }}</UnnnicButton>
-            <ItemCounter v-else :quantity="quantityInCart" @increment="addToCart(props.product)"
-                @decrement="decrementQuantity"></ItemCounter>
+            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" @click="handleAddToCart(props.product)">{{ $t('item_card.add_to_cart') }}</UnnnicButton>
+            <ItemCounter v-else :quantity="quantityInCart" @increment="handleAddToCart(props.product)"
+                @decrement="reduceFromCart(props.product.item)"></ItemCounter>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import type { ProductItem } from '../types/Cart';
-import { addToCart } from '../utils/cart';
+import type { CartItem } from '../types/Cart';
+import { addToCart, reduceFromCart } from '../utils/cart';
 import ItemCounter from '../components/ItemCounter.vue'
 import { computed } from 'vue';
 import { useCartStore } from '../store/cart.store';
@@ -33,37 +33,36 @@ import { useRouter } from 'vue-router';
 import { useItemsStore } from '../store/items.store';
 import { useI18n } from 'vue-i18n';
 const props = defineProps<{
-    product: ProductItem
+    product: CartItem
 }>()
+
+const emit = defineEmits(['showInventoryModal'])
 
 const router = useRouter()
 const itemStore = useItemsStore()
 const { t } = useI18n()
 function redirectToDetails() {
-    itemStore.selectItem(props.product)
+    itemStore.selectItem(props.product.item)
     router.push('/details')
 }
 
-const discountTitle = `${props.product.discount}% ${t('item_card.discount')}`
-const oldValueTitle = ` ${t('item_card.old_value')} ${t('currency')}${props.product.oldValue},00`
-const newValue = `${t('currency')}${props.product.value},00`
-const selledBy = `${t('item_card.selled_by')} ${props.product.seller}`
+const discountTitle = `${props.product.item.discount}% ${t('item_card.discount')}`
+const oldValueTitle = ` ${t('item_card.old_value')} ${t('currency')}${props.product.item.oldValue},00`
+const newValue = `${t('currency')}${props.product.item.value},00`
+const selledBy = `${t('item_card.selled_by')} ${props.product.item.seller}`
 
 const cartStore = useCartStore();
 
 const quantityInCart = computed(() => {
-    const item = cartStore.items.find(i => i.item.id === props.product.id);
+    const item = cartStore.items.find(i => i.item.id === props.product.item.id);
     return item ? item.qtd : 0;
 });
 
-function decrementQuantity() {
-    const item = cartStore.items.find(i => i.item.id === props.product.id);
-    if (item) {
-        if (item.qtd > 1) {
-            cartStore.updateItemQuantity(item.item.id, -1);
-        } else {
-            cartStore.removeItem(item.item.id);
-        }
+function handleAddToCart(product: CartItem) {
+    if(product.item.availableQuantity > 5) {
+        addToCart(product.item)
+    } else {
+        emit('showInventoryModal', product.item)
     }
 }
 </script>
