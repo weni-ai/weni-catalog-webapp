@@ -68,7 +68,6 @@ const totalValue = computed(() => {
 });
 
 const toggleModal = () => {
-    console.log('toggleModal');
     open.value = !open.value;
 }
 </script>

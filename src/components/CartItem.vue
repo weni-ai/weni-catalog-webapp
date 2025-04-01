@@ -14,7 +14,7 @@
                     <p class="cart-item__description__buy__price__old"> R${{ product.item.oldValue }}</p>
                     <p class="cart-item__description__buy__price__new">R$ {{ product.item.value }}</p>
                 </div>
-                <ItemCounter :quantity="quantityInCart" @increment="addToCart(product.item)" @decrement="reduceFromCart(product.item)"  />
+                <ItemCounter class="cart-item__description__buy__counter" :quantity="quantityInCart" @increment="addToCart(product.item)" @decrement="reduceFromCart(product.item)"  />
             </div>
         </div>
 
@@ -49,7 +49,6 @@ const quantityInCart = computed(() => {
     gap: $unnnic-spacing-xs;
     align-items: center;
     font-family: $unnnic-font-family-secondary;
-    margin: 1rem;
 
     &__image {
         display: flex;
@@ -57,8 +56,8 @@ const quantityInCart = computed(() => {
         padding: $unnnic-spacing-xs;
         align-items: center;
         justify-content: center;
-        width: 187px;
-
+        max-width: 187px;
+        width: 100%;
         &__main {
             width: 100%;
             height: 100%;
@@ -120,6 +119,10 @@ const quantityInCart = computed(() => {
                     font-weight: $unnnic-font-weight-bold;
                     color: $unnnic-color-weni-600;
                 }
+            }
+
+            &__counter {
+                min-width: 112px;
             }
         }
         

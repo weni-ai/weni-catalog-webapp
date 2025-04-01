@@ -34,6 +34,13 @@ const onDrag = (e: TouchEvent) => {
 };
 
 const endDrag = () => {
+    const wasDragged = Math.abs(dragOffset.value - currentY) > 10;
+
+    if (!wasDragged) {
+        dragOffset.value = currentY;
+        return;
+    }
+
     if (dragOffset.value > window.innerHeight * 0.4) {
         dragOffset.value = window.innerHeight * 0.8;
     } else {
@@ -41,6 +48,7 @@ const endDrag = () => {
         emit('close');
     }
 };
+
 </script>
 
 <style lang="scss" scoped>
