@@ -8,8 +8,8 @@ export interface ProductItem{
     value: number,
     seller: string,
     id: string | number,
-    availableQuantity: number,
-    category: string,
+    availableQuantity?: number,
+    category?: string,
 }
 
 export interface CartItem{

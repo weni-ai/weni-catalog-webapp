@@ -59,7 +59,7 @@ const quantityInCart = computed(() => {
 });
 
 function handleAddToCart(product: CartItem) {
-    if(product.item.availableQuantity > 5) {
+    if(product.item.availableQuantity && product.item.availableQuantity > 5) {
         addToCart(product.item)
     } else {
         emit('showInventoryModal', product.item)

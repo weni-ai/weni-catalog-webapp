@@ -1,7 +1,7 @@
 <template>
     <div>
         <unnnic-modal ref="unnnic-add-modal" class="add-modal" :showModal="open"
-            text="Produto sem estoque" scheme="feedback-green" 
+            text="Poucos itens em estoque" scheme="feedback-green" 
             @close="toggleModal" @click.stop>
             <template #message>
                 <InventoryView :product="product" />
@@ -27,6 +27,21 @@ function toggleModal() {
 }
 
 </script>
+
+<style scoped lang="scss">
+:deep(.unnnic-modal-container-background) {
+    width: 100%;
+    min-width: 800px;
+    max-height: 80vh;
+}
+
+:deep(.unnnic-modal-container-background-body-title) {
+    display: flex;
+    align-items: flex-start;
+}
+
+
+</style>
 
 
 

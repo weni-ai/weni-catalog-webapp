@@ -65,6 +65,7 @@ const endDrag = () => {
     font-family: $unnnic-font-family-secondary;
     border-radius: 16px 16px 0 0;
     transition: transform 0.3s ease;
+    overflow-y: scroll;
 
     &__handle {
         width: 40px;

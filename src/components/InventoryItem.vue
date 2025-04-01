@@ -1,6 +1,6 @@
 <template>
     <div class="inventory-item">
-        <div class="inventory-item__content" v-for="item in items" :key="item.id">
+        <div class="inventory-item__content">
             <CartItem :product="{ item, qtd: 0 }" />
         </div>
     </div>
@@ -11,7 +11,7 @@ import CartItem from './CartItem.vue';
 import type { ProductItem } from '../types/Cart';
 
 defineProps<{
-    items: ProductItem[]
+    item: ProductItem
 }>()
 
 </script>
