@@ -1,23 +1,36 @@
 <template>
-    <div class="card">
-        <div class="card__discount">
+    <article class="card">
+        <header class="card__discount">
             {{ discountTitle }}
-        </div>
+        </header>
+
         <img src="../assets/model.png" alt="" class="card__image">
-        <div class="card__description">
-            <div class="card__description__title">{{ product.title }}</div>
-            <div class="card__description__owner">{{ product.owner }}</div>
-            <div class="card__description__old_value">{{ oldValueTitle }}</div>
-            <div class="card__description__new_value">{{ newValue }}</div>
-            <div class="card__description__seller">{{ selledBy }}</div>
-        </div>
-        <UnnnicButton iconLeft="add-1" @click="handleAddToCart" class="card__button">{{ $t('add_to_cart') }}</UnnnicButton>
-    </div>
+
+        <section class="card__description">
+            <h2 class="card__description__title">{{ product.title }}</h2>
+            <p class="card__description__owner">{{ product.owner }}</p>
+            <p class="card__description__old_value">{{ oldValueTitle }}</p>
+            <p class="card__description__new_value">{{ newValue }}</p>
+            <p class="card__description__seller">{{ selledBy }}</p>
+        </section>
+
+        <UnnnicButton
+            iconLeft="add-1"
+            @click="addToCart(props.product)"
+            class="card__button"
+        >
+            {{ $t('add_to_cart') }}
+        </UnnnicButton>
+    </article>
 </template>
+
 
 <script lang="ts" setup>
 import type { ProductItem } from '../types/Cart';
 import { addToCart } from '../utils/cart';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const props = defineProps<{
     product: ProductItem
@@ -28,9 +41,6 @@ const oldValueTitle = ` de R$${props.product.oldValue},00`
 const newValue = `${t('currency')} ${props.product.value},00`
 const selledBy = `${t('selled_by')} ${props.product.seller}`
 
-function handleAddToCart() {
-    addToCart(props.product);
-}
 </script>
 
 <style lang="scss" scoped>

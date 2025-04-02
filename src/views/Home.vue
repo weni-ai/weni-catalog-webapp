@@ -1,17 +1,17 @@
 <template>
     <div class="home">
-        <div class="home__search">
+        <section class="home__search">
             <UnnnicInput v-model="searchInput" iconLeft="search-1" placeholder="Procurar produto" />
-        </div>
-        <div class="home__items">
-            <ItemsList/>
-        </div>
-    </div>
+        </section>
+        <section class="home__items">
+            <ProductsList/>
+        </section>
+    </div>      
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import ItemsList from '../components/ProductsList.vue';
+import ProductsList from '../components/ProductsList.vue';
 
 const searchInput = ref('')
 </script>
