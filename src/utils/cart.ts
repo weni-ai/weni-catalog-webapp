@@ -1,4 +1,3 @@
-// utils/cartUtils.ts
 import { itemsList } from '../mocks';
 import { useCartStore } from '../store/cart.store';
 import type { ProductItem, CartItem } from '../types/Cart';
