@@ -1,4 +1,3 @@
-// src/plugins/i18n.ts ou src/i18n.ts
 import { createI18n } from 'vue-i18n';
 import en from '../locales/en.json';
 import pt from '../locales/pt-BR.json';

@@ -14,7 +14,7 @@
                     <p class="cart-item__description__buy__price__old"> R${{ product.item.oldValue }}</p>
                     <p class="cart-item__description__buy__price__new">R$ {{ product.item.value }}</p>
                 </div>
-                <ItemCounter :quantity="quantityInCart" @increment="addToCart(product.item)" @decrement="reduceFromCart(product.item)"  />
+                <ItemCounter class="cart-item__description__buy__counter" :quantity="quantityInCart" @increment="addToCart(product.item)" @decrement="reduceFromCart(product.item)"  />
             </div>
         </div>
 
@@ -49,7 +49,11 @@ const quantityInCart = computed(() => {
     gap: $unnnic-spacing-xs;
     align-items: center;
     font-family: $unnnic-font-family-secondary;
-    margin: 1rem;
+
+    @media (min-width: $tablet-width) {
+        justify-content: flex-start;
+        gap: $unnnic-spacing-md;
+    }
 
     &__image {
         display: flex;
@@ -57,8 +61,8 @@ const quantityInCart = computed(() => {
         padding: $unnnic-spacing-xs;
         align-items: center;
         justify-content: center;
-        width: 187px;
-
+        max-width: 187px;
+        width: 100%;
         &__main {
             width: 100%;
             height: 100%;
@@ -85,17 +89,18 @@ const quantityInCart = computed(() => {
         flex-direction: column;
         gap: $unnnic-spacing-xs;
 
-        @media (min-width: $tablet-width) {
-            max-width: 364px;
-        }
-
-
         &__title {
             color: $unnnic-color-neutral-black;
+            @media (min-width: $tablet-width) {
+                text-align: left !important;
+            }
         }
 
         &__seller {
             color: $unnnic-color-neutral-clean;
+            @media (min-width: $tablet-width) {
+                text-align: left !important;
+            }
         }
 
         &__buy {
@@ -104,6 +109,7 @@ const quantityInCart = computed(() => {
             justify-content: space-between;
             align-items: center;
             gap: $unnnic-spacing-sm;
+
 
             &__price {
                 display: flex;
@@ -114,12 +120,24 @@ const quantityInCart = computed(() => {
                     color: $unnnic-color-neutral-clean;
                     text-decoration: line-through;
                     font-size: $unnnic-font-size-body-md;
+                    @media (min-width: $tablet-width) {
+                        display: flex;
+                        align-items: flex-start;
+                    }
                 }
 
                 &__new {
                     font-weight: $unnnic-font-weight-bold;
                     color: $unnnic-color-weni-600;
+                    @media (min-width: $tablet-width) {
+                        display: flex;
+                        align-items: flex-start;
+                    }
                 }
+            }
+
+            &__counter {
+                min-width: 112px;
             }
         }
         

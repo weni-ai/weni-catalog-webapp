@@ -47,7 +47,7 @@
         </div>
 
         <div v-if="isWideScreen">
-            <BottomDrawer :isOpen="true">
+            <BottomDrawer :isOpen="true" :itemCount="0" :totalValue="0">
                 <div class="drawer">
                     <div class="drawer__text">
                         <div class="drawer__text__from">
