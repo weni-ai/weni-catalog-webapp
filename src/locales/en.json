@@ -2,5 +2,8 @@
     "add_to_cart": "Add to cart",
     "header": {
         "title": "Weni Store"
-    }
+    },
+    "discount": "discount",
+    "selled_by": "Selled by",
+    "currency": "USD $"
 }

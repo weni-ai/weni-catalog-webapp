@@ -2,5 +2,8 @@
     "add_to_cart": "Adicionar ao carrinho",
     "header": {
         "title": "Loja Weni"
-    }
+    },
+    "discount": " de desconto",
+    "selled_by": "Vendido por",
+    "currency": "BRL R$"
 }

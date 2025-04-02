@@ -2,5 +2,8 @@
     "add_to_cart": "Añadir al carrito",
     "header": {
         "title": "Tienda Weni"
-    }
+    },
+    "discount": "descuento",
+    "selled_by": "Vendido por",
+    "currency": "EUR €"
 }

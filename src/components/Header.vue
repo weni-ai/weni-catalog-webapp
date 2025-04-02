@@ -1,9 +1,9 @@
 <template>
     <header class="header">
-        <header class="header__title">
+        <section class="header__title">
             <img class="header__title__logo" src="../assets/weni-logo.svg" alt="" />
             <p class="header__title__text">{{ $t('header.title') }}</p>
-        </header>
+        </section>
         <section class="header__cart">
             <img src="../assets/shopping_cart.svg" alt="" @click="toggleOpenCart" />
         </section>

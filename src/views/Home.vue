@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import ItemsList from '../components/ItemsList.vue';
+import ItemsList from '../components/ProductsList.vue';
 
 const searchInput = ref('')
 </script>
