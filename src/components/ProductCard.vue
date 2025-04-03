@@ -1,7 +1,7 @@
 <template>
     <article class="card">
         <header class="card__discount">
-            <p>{{ discountTitle }}</p>
+            {{ discountTitle }}
         </header>
 
         <figure class="card__image">
@@ -9,7 +9,7 @@
         </figure>
 
         <section class="card__description">
-            <h3 class="card__description__title">{{ product.title }}</h3>
+            <p class="card__description__title">{{ product.title }}</p>
             <p class="card__description__owner">{{ product.owner }}</p>
             <p class="card__description__old_value">{{ oldValueTitle }}</p>
             <p class="card__description__new_value">{{ newValue }}</p>
@@ -17,20 +17,12 @@
         </section>
 
         <footer class="card__button">
-            <UnnnicButton
-                v-if="!quantityInCart"
-                iconLeft="add-1"
-                @click="handleAddToCart"
-            >
+            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" @click="handleAddToCart">
                 {{ $t('product_card.add_to_cart') }}
             </UnnnicButton>
 
-            <ItemCounter
-                v-else
-                :quantity="quantityInCart"
-                @increment="incrementQuantity"
-                @decrement="decrementQuantity"
-            />
+            <ItemCounter v-else :quantity="quantityInCart" @increment="incrementQuantity"
+                @decrement="decrementQuantity" />
         </footer>
     </article>
 </template>
