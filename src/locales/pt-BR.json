@@ -1,4 +1,10 @@
 {
+    "product_card": {
+        "add_to_cart": "Adicionar",
+        "image": {
+            "alt": "Imagem do produto"
+        }
+    },
     "header": {
         "title": "Loja Weni"
     },

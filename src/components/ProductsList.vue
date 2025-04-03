@@ -1,12 +1,12 @@
 <template>
-    <div class="items">
-        <ItemCard v-for="item in itemsList" :key="item.id" :product="item" />
-    </div>
+    <section class="items">
+        <ProductCard v-for="item in itemsList" :key="item.id" :product="item" />
+    </section>
 </template>
 
 <script setup lang="ts">
 import { itemsList } from '../mocks';
-import ItemCard from './ItemCard.vue';
+import ProductCard from './ProductCard.vue';
 
 
 </script>
