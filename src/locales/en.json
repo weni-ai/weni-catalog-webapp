@@ -8,12 +8,19 @@
     "header": {
         "title": "Weni Store"
     },
-        "summary_drawer": {
+    "summary_drawer": {
         "finish_order": "Finish order",
         "total": "Total",
         "items": "items"
     },
-    "discount": "discount",
-    "selled_by": "Selled by",
-    "currency": "USD $"
+    "currency": "$",
+    "item_card": {
+        "discount": "discount",
+        "old_value": "old value",
+        "selled_by": "selled by",
+        "add_to_cart": "Add to cart",
+        "from": "from",
+        "to": "to",
+        "by": "by"
+    }
 }

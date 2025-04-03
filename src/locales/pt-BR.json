@@ -13,7 +13,14 @@
         "total": "Total",
         "items": "itens"
     },
-    "discount": " de desconto",
-    "selled_by": "Vendido por",
-    "currency": "BRL R$"
+    "currency": "R$",
+    "item_card": {
+        "discount": "desconto",
+        "old_value": "valor antigo",
+        "selled_by": "vendido por",
+        "add_to_cart": "Adicionar",
+        "from": "de",
+        "to": "a",
+        "by": "por"
+    }
 }
