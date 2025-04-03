@@ -1,6 +1,9 @@
 {
-    "item_card": {
-        "add_to_cart": "Add to cart"
+    "product_card": {
+        "add_to_cart": "Add to cart",
+        "image": {
+            "alt": "Product image"
+        }
     },
     "header": {
         "title": "Weni Store"

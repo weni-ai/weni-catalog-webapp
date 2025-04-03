@@ -5,7 +5,7 @@
         </header>
 
         <figure class="card__image">
-            <img src="../assets/model.png" alt="Imagem do produto" />
+            <img src="../assets/model.png" :alt="$t('product_card.image.alt')" />
         </figure>
 
         <section class="card__description">

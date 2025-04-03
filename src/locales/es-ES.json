@@ -1,6 +1,9 @@
 {
-    "item_card": {
-        "add_to_cart": "Añadir al carrito"
+    "product_card": {
+        "add_to_cart": "Añadir al carrito",
+        "image": {
+            "alt": "Imagen del producto"
+        }
     },
     "header": {
         "title": "Tienda Weni"
