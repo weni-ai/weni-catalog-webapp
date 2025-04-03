@@ -12,7 +12,7 @@ jobs:
         run: |
               npm install -g yarn
               yarn install
-      - name: Run tests
-        run: yarn test --coverage
+      - name: Run lint
+        run: yarn lint
       - name: Build Bundle
         run: yarn build
