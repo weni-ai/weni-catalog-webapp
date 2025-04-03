@@ -22,7 +22,7 @@
                 iconLeft="add-1"
                 @click="handleAddToCart"
             >
-                {{ $t('item_card.add_to_cart') }}
+                {{ $t('product_card.add_to_cart') }}
             </UnnnicButton>
 
             <ItemCounter
