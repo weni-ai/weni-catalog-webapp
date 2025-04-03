@@ -8,5 +8,8 @@
     "summary_drawer": {
         "finish_order": "Finish order",
         "total": "Total"
-    }
+    },
+    "discount": "discount",
+    "selled_by": "Selled by",
+    "currency": "USD $"
 }

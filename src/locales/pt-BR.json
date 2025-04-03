@@ -8,5 +8,8 @@
     "summary_drawer": {
         "finish_order": "Finalizar pedido",
         "total": "Total"
-    }
+    },
+    "discount": " de desconto",
+    "selled_by": "Vendido por",
+    "currency": "BRL R$"
 }
