@@ -1,10 +1,11 @@
 <template>
-    <div v-if="isOpen" class="drawer" @click.stop>
-        <div class="drawer__content">
+    <aside v-if="isOpen" class="drawer" role="complementary" aria-label="Painel lateral" @click.stop>
+        <section class="drawer__content">
             <slot />
-        </div>
-    </div>
+        </section>
+    </aside>
 </template>
+
 
 <script lang="ts" setup>
 defineProps<{
@@ -26,7 +27,7 @@ defineProps<{
     padding: 16px;
     font-family: $unnnic-font-family-secondary;
 
-    &__content{
+    &__content {
         display: flex;
         width: 100%;
     }
@@ -36,6 +37,7 @@ defineProps<{
     from {
         transform: translateY(100%);
     }
+
     to {
         transform: translateY(0);
     }
