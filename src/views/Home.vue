@@ -40,8 +40,6 @@ const cartItems = computed(() => cartStore.items);
 
 const isDrawerOpen = computed(() => cartItems.value.length > 0);
 
-const drawerHeight = 200; 
-
 const itemCount = computed(() => {
     return cartItems.value.reduce((total, item) => total + item.qtd, 0);
 });
