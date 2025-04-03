@@ -1,8 +1,8 @@
 <template>
     <header class="header">
         <section class="header__title">
-            <img class="header__title__logo" src="../assets/weni-logo.svg" alt="" />
-            <p class="header__title__text">{{ $t('header.title') }}</p>
+            <img class="title__logo" src="../assets/weni-logo.svg" alt="Weni logo" />
+            <p class="title__text">{{ $t('header.title') }}</p>
         </section>
         <section class="header__cart">
             <img src="../assets/shopping_cart.svg" alt="" @click="toggleOpenCart" />
@@ -38,20 +38,22 @@ const toggleOpenCart = () => {};
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        gap: $unnnic-spacing-xs;
 
         @media (min-width: $tablet-width) {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
         }
-
-        &__logo {
+        .logo {
+            display: block;
+            height: 24px;
             width: 24px;
+            align-self: center;
+            justify-content: center;
+            color: $unnnic-color-neutral-white;
         }
 
-        &__text {
-            margin-left: $unnnic-spacing-xs;
-        }
     }
 
     &__cart {
