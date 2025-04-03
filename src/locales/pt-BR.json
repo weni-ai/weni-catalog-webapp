@@ -10,7 +10,8 @@
     },
     "summary_drawer": {
         "finish_order": "Finalizar pedido",
-        "total": "Total"
+        "total": "Total",
+        "items": "itens"
     },
     "currency": "R$",
     "item_card": {

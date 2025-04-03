@@ -36,11 +36,11 @@
                     {{ selectedItem.description }}
                 </div>
                 <div class="details__container__about__button" v-if="!isWideScreen">
-                    <UnnnicButton iconRight="add-1" size="small" @click="handleAddToCart">
+                    <UnnnicButton iconRight="add-1" size="small" @click="addToCart(selectedItem)">
                         {{ $t('item_card.add_to_cart') }}
                     </UnnnicButton>
                     <ItemCounter class="details__container__about__button__counter" :quantity="quantityInCart"
-                        @increment="incrementQuantity" @decrement="decrementQuantity" />
+                        @increment="addToCart(selectedItem)" @decrement="decrementQuantity(selectedItem)" />
                 </div>
             </div>
 
@@ -60,14 +60,14 @@
 
                     <div class="drawer__button">
                         <div class="drawer__button__add">
-                            <UnnnicButton iconRight="add-1" size="small" @click="handleAddToCart">
+                            <UnnnicButton iconRight="add-1" size="small" @click="addToCart(selectedItem)">
                                 {{ $t('item_card.add_to_cart') }}
                             </UnnnicButton>
                         </div>
 
                         <div v-if="quantityInCart" class="drawer__button__counter">
-                            <ItemCounter :quantity="quantityInCart" @increment="incrementQuantity"
-                                @decrement="decrementQuantity" />
+                            <ItemCounter :quantity="quantityInCart" @increment="addToCart(selectedItem)"
+                                @decrement="decrementQuantity(selectedItem)" />
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@ import Carousel from '../components/Carousel.vue';
 import BottomDrawer from '../components/BottomDrawer.vue';
 import ItemCounter from '../components/ItemCounter.vue';
 
-import { addToCart } from '../utils/cart';
+import { addToCart, decrementQuantity } from '../utils/cart';
 import { useItemsStore } from '../store/items.store';
 import { useCartStore } from '../store/cart.store';
 
@@ -117,25 +117,6 @@ const quantityInCart = computed(() => {
     const item = cartStore.items.find(i => i.id === selectedItem.id);
     return item ? item.qtd : 0;
 });
-
-function handleAddToCart() {
-    addToCart(selectedItem);
-}
-
-function incrementQuantity() {
-    addToCart(selectedItem);
-}
-
-function decrementQuantity() {
-    const item = cartStore.items.find(i => i.id === selectedItem.id);
-    if (item) {
-        if (item.qtd > 1) {
-            cartStore.updateItemQuantity(item.id, -1);
-        } else {
-            cartStore.removeItem(item.id);
-        }
-    }
-}
 
 function redirectTo(crumb: any) {
     router.push(crumb.path);

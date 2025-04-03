@@ -8,9 +8,10 @@
     "header": {
         "title": "Weni Store"
     },
-        "summary_drawer": {
+    "summary_drawer": {
         "finish_order": "Finish order",
-        "total": "Total"
+        "total": "Total",
+        "items": "items"
     },
     "currency": "$",
     "item_card": {
