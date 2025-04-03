@@ -10,7 +10,8 @@
     },
     "summary_drawer": {
         "finish_order": "Finalizar pedido",
-        "total": "Total"
+        "total": "Total",
+        "items": "items"
     },
     "discount": "descuento",
     "selled_by": "Vendido por",
