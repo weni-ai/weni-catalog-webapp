@@ -1,12 +1,12 @@
 <template>
-    <div class="home">
+    <main class="home">
         <section class="home__search">
             <UnnnicInput v-model="searchInput" iconLeft="search-1" placeholder="Procurar produto" />
         </section>
         <section class="home__items">
             <ProductsList/>
         </section>
-    </div>      
+    </main>      
 </template>
 
 <script lang="ts" setup>

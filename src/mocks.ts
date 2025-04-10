@@ -1,4 +1,4 @@
-export const itemsList = [
+export const productsList = [
     {
         id: 1,
         title: "Cloridrato de Sertralina 25mg 30 comprimidos Eurofarma Genérico",

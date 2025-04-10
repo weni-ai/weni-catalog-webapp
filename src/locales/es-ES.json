@@ -5,5 +5,7 @@
     },
     "discount": "descuento",
     "selled_by": "Vendido por",
-    "currency": "EUR €"
+    "currency": "EUR €",
+    "from": "de",
+    "to": "a"
 }

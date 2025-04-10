@@ -1,18 +1,18 @@
 <template>
-    <section class="items">
-        <ProductCard v-for="item in itemsList" :key="item.id" :product="item" />
+    <section class="products">
+        <ProductCard v-for="product in productsList" :key="product.id" :product="product" />
     </section>
 </template>
 
 <script setup lang="ts">
-import { itemsList } from '../mocks';
+import { productsList } from '../mocks';
 import ProductCard from './ProductCard.vue';
 
 
 </script>
 
 <style lang="scss">
-.items {
+.products {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0px $unnnic-spacing-xs;

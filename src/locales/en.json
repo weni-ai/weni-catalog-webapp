@@ -5,5 +5,7 @@
     },
     "discount": "discount",
     "selled_by": "Selled by",
-    "currency": "USD $"
+    "currency": "USD $",
+    "from": "from",
+    "to": "to"
 }

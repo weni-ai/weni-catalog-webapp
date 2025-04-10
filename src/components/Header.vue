@@ -45,15 +45,6 @@ const toggleOpenCart = () => {};
             left: 50%;
             transform: translateX(-50%);
         }
-        .logo {
-            display: block;
-            height: 24px;
-            width: 24px;
-            align-self: center;
-            justify-content: center;
-            color: $unnnic-color-neutral-white;
-        }
-
     }
 
     &__cart {

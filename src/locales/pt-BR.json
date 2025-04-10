@@ -5,5 +5,7 @@
     },
     "discount": " de desconto",
     "selled_by": "Vendido por",
-    "currency": "BRL R$"
+    "currency": "BRL R$",
+    "from": "de",
+    "to": "por"
 }
