@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <main class="home">
         <section class="home__search">
             <UnnnicInput v-model="searchInput" iconLeft="search-1" placeholder="Procurar produto" />
         </section>
@@ -7,7 +7,7 @@
             <ProductsList/>
         </section>
         <SummaryDrawer v-if="isMobile" :isOpen="isDrawerOpen" :itemCount="itemCount" :totalValue="totalValue" />
-    </div>      
+    </main>      
 </template>
 
 

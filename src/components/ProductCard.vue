@@ -44,7 +44,7 @@ const props = defineProps<{
 }>()
 
 const discountTitle = `${props.product.discount}% ${t('discount')}`
-const oldValueTitle = ` de R$${props.product.oldValue},00`
+const oldValueTitle = ` ${t('from')} ${t('currency')} ${props.product.oldValue},00`
 const newValue = `${t('currency')} ${props.product.value},00`
 const selledBy = `${t('selled_by')} ${props.product.seller}`
 
@@ -84,7 +84,7 @@ function decrementQuantity() {
     flex: 1 0 0;
     height: 100%;
     border-radius: $unnnic-border-radius-sm;
-    border: 1px solid $unnnic-color-neutral-soft;
+    border: $unnnic-border-width-thinner solid $unnnic-color-neutral-soft;
     font-family: $unnnic-font-family-secondary;
 
     &__image {
@@ -93,7 +93,7 @@ function decrementQuantity() {
 
     &__discount {
         display: flex;
-        padding: 4px $unnnic-border-radius-md;
+        padding: $unnnic-spacing-nano $unnnic-border-radius-md;
         justify-content: center;
         align-items: center;
         border-radius: 0 0 $unnnic-border-radius-md $unnnic-border-radius-md;
@@ -134,14 +134,6 @@ function decrementQuantity() {
             color: $unnnic-color-weni-600;
             font-size: $unnnic-font-size-body-lg;
             font-weight: $unnnic-font-weight-bold;
-        }
-    }
-
-    &__button {
-        width: 100%;
-
-        :deep(.unnnic-button) {
-            width: 100%;
         }
     }
 }
