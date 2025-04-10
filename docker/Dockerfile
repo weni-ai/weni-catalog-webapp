@@ -2,7 +2,7 @@
 
 ARG NODE_VERSION="18.19.1"
 ARG BASE_VERSION="alpine3.19"
-ARG OLD_IMAGE="catalog-webapp:latest"
+# ARG OLD_IMAGE="catalog-webapp:latest"
 ARG KEEP_DAYS=60
 
 FROM node:${NODE_VERSION}-${BASE_VERSION} AS builder
@@ -28,10 +28,10 @@ COPY . ./
 
 RUN npm run build-only
 
-FROM ${OLD_IMAGE} AS old_css
+# FROM ${OLD_IMAGE} AS old_css
 
 FROM nginxinc/nginx-unprivileged:1.25-alpine
-ARG OLD_IMAGE=${OLD_IMAGE}
+# ARG OLD_IMAGE=${OLD_IMAGE}
 ARG KEEP_DAYS
 
 COPY --chown=nginx:nginx docker/nginx.conf /etc/nginx/nginx.conf
