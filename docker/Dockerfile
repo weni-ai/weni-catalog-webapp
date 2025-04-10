@@ -39,7 +39,7 @@ COPY --chown=nginx:nginx docker/headers /usr/share/nginx/html/headers
 COPY --chown=nginx:nginx docker/file_handler.sh /
 COPY --chown=nginx:nginx docker/docker-entrypoint.sh /
 COPY --from=builder --chown=nginx:nginx /app/dist /usr/share/nginx/html/catalog-webapp/
-COPY --from=old_css --chown=nginx:nginx /usr/share/nginx/html/catalog-webapp/assets/all.tx[t] /usr/share/nginx/html/catalog-webapp/assets/*.css /usr/share/nginx/html/catalog-webapp/assets/
+# COPY --from=old_css --chown=nginx:nginx /usr/share/nginx/html/catalog-webapp/assets/all.tx[t] /usr/share/nginx/html/catalog-webapp/assets/*.css /usr/share/nginx/html/catalog-webapp/assets/
 RUN mv /usr/share/nginx/html/catalog-webapp/index.html /usr/share/nginx/html/catalog-webapp/index.html.tmpl \
     && cd /usr/share/nginx/html/catalog-webapp/ \
     && ln -s /tmp/index.html \
