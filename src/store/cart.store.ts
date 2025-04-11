@@ -1,13 +1,10 @@
 import { defineStore } from 'pinia';
 import type { CartItem } from '../types/Cart';
 
-interface CartState {
-    items: CartItem[];
-}
 
 export const useCartStore = defineStore('cart', {
-    state: (): CartState => ({
-        items: [],
+    state: () => ({
+        items: [] as CartItem[],
     }),
     actions: {
         addItemToCart(item: CartItem) {
@@ -19,5 +16,9 @@ export const useCartStore = defineStore('cart', {
                 existingItem.qtd += quantity;
             }
         },
+        removeItem(id: string | number) {
+            this.items = this.items.filter(item => item.id !== id);
+        },
     },
 });
+
