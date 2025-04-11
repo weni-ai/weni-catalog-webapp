@@ -17,11 +17,11 @@
         </section>
 
         <footer class="card__button">
-            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" @click="handleAddToCart">
+            <UnnnicButton class="card__button__add" v-if="!quantityInCart" iconLeft="add" @click="handleAddToCart">
                 {{ $t('product_card.add_to_cart') }}
             </UnnnicButton>
 
-            <ItemCounter v-else :quantity="quantityInCart" @increment="incrementQuantity"
+            <ItemCounter class="card__button__counter" v-else :quantity="quantityInCart" @increment="incrementQuantity"
                 @decrement="decrementQuantity" />
         </footer>
     </article>
@@ -134,6 +134,19 @@ function decrementQuantity() {
             color: $unnnic-color-weni-600;
             font-size: $unnnic-font-size-body-lg;
             font-weight: $unnnic-font-weight-bold;
+        }
+    }
+
+    &__button {
+        display: flex;
+        width: 100%;
+
+        &__add {
+            width: 100%;
+        }
+
+        &__counter {
+            width: 100%;
         }
     }
 }
