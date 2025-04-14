@@ -11,8 +11,8 @@
             <p class="cart-item__description__seller">{{ product.item.seller }}</p>
             <div class="cart-item__description__buy">
                 <div class="cart-item__description__buy__price">
-                    <p class="cart-item__description__buy__price__old"> R${{ product.item.oldValue }}</p>
-                    <p class="cart-item__description__buy__price__new">R$ {{ product.item.value }}</p>
+                    <p class="cart-item__description__buy__price__old"> R${{ product.item.oldValue }},00</p>
+                    <p class="cart-item__description__buy__price__new">R$ {{ product.item.value }},00</p>
                 </div>
                 <ItemCounter class="cart-item__description__buy__counter" :quantity="quantityInCart" @increment="addToCart(product.item)" @decrement="reduceFromCart(product.item)"  />
             </div>
@@ -51,7 +51,7 @@ const quantityInCart = computed(() => {
     font-family: $unnnic-font-family-secondary;
 
     @media (min-width: $tablet-width) {
-        justify-content: flex-start;
+        justify-content: space-around;
         gap: $unnnic-spacing-md;
     }
 
@@ -93,6 +93,7 @@ const quantityInCart = computed(() => {
             color: $unnnic-color-neutral-black;
             @media (min-width: $tablet-width) {
                 text-align: left !important;
+                
             }
         }
 
@@ -123,6 +124,7 @@ const quantityInCart = computed(() => {
                     @media (min-width: $tablet-width) {
                         display: flex;
                         align-items: flex-start;
+                        font-size: $unnnic-font-size-body-gt;
                     }
                 }
 
@@ -132,6 +134,7 @@ const quantityInCart = computed(() => {
                     @media (min-width: $tablet-width) {
                         display: flex;
                         align-items: flex-start;
+                        font-size: $unnnic-font-size-body-lg;
                     }
                 }
             }

@@ -25,7 +25,7 @@ function showInventoryModal(product: ProductItem) {
     align-self: stretch;
 
     @media (min-width: $tablet-width) {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(6, 1fr);
         padding: $unnnic-spacing-md $unnnic-spacing-lg 0px $unnnic-spacing-lg;
     }
 }

@@ -76,7 +76,7 @@ const toggleModal = () => {
 <style lang="scss">
 .home{
     &__search{
-        margin: $unnnic-spacing-sm;
+        margin: $unnnic-spacing-xs;
         @media (min-width: $tablet-width) {
             margin: $unnnic-spacing-md $unnnic-spacing-lg 0 $unnnic-spacing-lg;
         }

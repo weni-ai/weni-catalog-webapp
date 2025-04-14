@@ -9,7 +9,7 @@
     "currency": "$",
     "item_card": {
         "discount": "discount",
-        "old_value": "old value",
+        "old_value": "from",
         "selled_by": "selled by",
         "add_to_cart": "Add to cart"
     },

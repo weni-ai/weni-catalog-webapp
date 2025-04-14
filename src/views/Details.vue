@@ -35,8 +35,8 @@
                 <div class="details__container__about__description">
                     {{ selectedItem.description }}
                 </div>
-                <div class="details__container__about__button" v-if="!isWideScreen">
-                    <UnnnicButton iconRight="add-1" size="small" @click="addToCart(selectedItem)">
+                <div class="details__container__about__button" >
+                    <UnnnicButton v-if="!isWideScreen" :disabled="quantityInCart" iconRight="add-1" size="small" @click="addToCart(selectedItem)">
                         {{ $t('item_card.add_to_cart') }}
                     </UnnnicButton>
                     <ItemCounter class="details__container__about__button__counter" :quantity="quantityInCart"
@@ -130,7 +130,7 @@ function redirectTo(crumb: any) {
     height: calc(100vh - 60px);
     overflow-y: auto;
     flex-direction: column;
-    padding: 0 24px 118px;
+    padding: 0 8px 118px;
     font-family: $unnnic-font-family-secondary;
     -ms-overflow-style: none;
     scrollbar-width: 0;
@@ -186,6 +186,7 @@ function redirectTo(crumb: any) {
                 height: 100%;
                 align-self: center;
                 margin-top: 8px;
+                gap: 16px;
             }
 
             &__title {
@@ -221,6 +222,7 @@ function redirectTo(crumb: any) {
 
             &__button {
                 display: flex;
+                align-items: center;
                 flex-direction: row;
                 gap: 8px;
 
@@ -230,7 +232,7 @@ function redirectTo(crumb: any) {
 
                 &__counter {
                     display: flex;
-                    width: 191px;
+                    width: 190px;
                 }
             }
         }

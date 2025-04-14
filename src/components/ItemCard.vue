@@ -80,8 +80,6 @@ function handleAddToCart(product: CartItem) {
     font-family: $unnnic-font-family-secondary;
     cursor: pointer;
 
-
-
     &__discount {
         display: flex;
         padding: 4px $unnnic-border-radius-md;
@@ -93,6 +91,8 @@ function handleAddToCart(product: CartItem) {
         color: $unnnic-color-aux-green-900;
         align-self: flex-end;
         width: 100%;
+
+        
     }
 
     &__content {
@@ -102,7 +102,15 @@ function handleAddToCart(product: CartItem) {
 
         &__description {
             flex: 1;
-            gap: $unnnic-spacing-sm;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            @media (min-width: $tablet-width) {
+                font-size: 16px;
+                justify-content: center;
+                align-items: center;         
+             }
 
             &__title {
                 flex: 1;
@@ -118,6 +126,7 @@ function handleAddToCart(product: CartItem) {
 
                 @media (min-width: $tablet-width) {
                     min-height: 3em;
+                    text-align: center;
                 }
             }
 
@@ -125,19 +134,20 @@ function handleAddToCart(product: CartItem) {
             &__seller {
                 color: $unnnic-color-neutral-clean;
                 font-size: $unnnic-font-size-body-md;
-
                 @media (min-width: $tablet-width) {
                     justify-self: center;
+                    font-size: $unnnic-font-size-body-gt;
                 }
             }
 
-            &__old_value {
+            &__old_value { 
                 color: $unnnic-color-neutral-cloudy;
                 font-size: $unnnic-font-size-body-md;
                 text-decoration: line-through;
 
                 @media (min-width: $tablet-width) {
                     justify-self: center;
+                    font-size: $unnnic-font-size-body-gt;
                 }
             }
 
@@ -148,6 +158,7 @@ function handleAddToCart(product: CartItem) {
 
                 @media (min-width: $tablet-width) {
                     justify-self: center;
+                    font-size: $unnnic-font-size-body-lg;
                 }
             }
         }
@@ -163,6 +174,7 @@ function handleAddToCart(product: CartItem) {
         width: 100%;
         height: 100%;
         align-items: flex-end;
+        padding-top: 8px;
 
         :deep(.unnnic-button) {
             width: 100%;
