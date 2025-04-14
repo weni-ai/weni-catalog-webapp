@@ -8,7 +8,6 @@
 import { productsList } from '../mocks';
 import ProductCard from './ProductCard.vue';
 
-
 </script>
 
 <style lang="scss">

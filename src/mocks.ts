@@ -195,7 +195,13 @@ export const productsList = [
         discount: 7,
         seller: 'Farma X',
         value: 20,
-        oldValue: 22
+        oldValue: 22,
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            }
+        ]
     },
     {
         id: 12,
@@ -206,7 +212,13 @@ export const productsList = [
         discount: 7,
         seller: 'Farma X',
         value: 20,
-        oldValue: 22
+        oldValue: 22,
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            }
+        ]
     },
     {
         id: 13,
@@ -217,6 +229,12 @@ export const productsList = [
         discount: 7,
         seller: 'Farma X',
         value: 20,
-        oldValue: 22
+        oldValue: 22,
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            }
+        ]
     }
 ];

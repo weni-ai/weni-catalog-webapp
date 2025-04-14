@@ -43,7 +43,7 @@
                     </UnnnicButton>
 
                     <ItemCounter class="details__container__about__button__counter" :quantity="quantityInCart"
-                        @increment="addToCart(selectedItem)" @decrement="decrementQuantity(selectedItem)" />
+                        @increment="addToCart(selectedItem)" @decrement="reduceFromCart(selectedItem)" />
                 </footer>
             </section>
         </main>
@@ -66,10 +66,9 @@
                         </UnnnicButton>
                     </div>
 
-                        <div v-if="quantityInCart" class="drawer__button__counter">
-                            <ItemCounter :quantity="quantityInCart" @increment="addToCart(selectedItem)"
-                                @decrement="reduceFromCart(selectedItem)" />
-                        </div>
+                    <div v-if="quantityInCart" class="drawer__button__counter">
+                        <ItemCounter :quantity="quantityInCart" @increment="addToCart(selectedItem)"
+                            @decrement="reduceFromCart(selectedItem)" />
                     </div>
                 </div>
             </aside>
