@@ -45,3 +45,14 @@ export function decrementQuantity(product: ProductItem) {
         }
     }
 }
+
+export function groupItemsBySeller(items: CartItem[]): Record<string, CartItem[]> {
+    return items.reduce((acc, item) => {
+        const seller = item.item.seller;
+        if (!acc[seller]) {
+            acc[seller] = [];
+        }
+        acc[seller].push(item);
+        return acc;
+    }, {} as Record<string, CartItem[]>);
+}

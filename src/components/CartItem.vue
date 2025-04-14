@@ -1,24 +1,23 @@
 <template>
-    <div class="cart-item">
-        <div class="cart-item__image">
-            <img class="cart-item__image__main" src="../assets/model.png" alt="">
-            <div class="cart-item__image__discount">
-                <p class="cart-item__image__discount__text">{{ product.item.discount }}% de desconto</p>
-            </div>
-        </div>
-        <div class="cart-item__description">
+    <article class="cart-item">
+        <figure class="cart-item__image">
+            <img class="cart-item__image__main" src="../assets/model.png" alt="{{ product.item.title }}">
+            <figcaption class="cart-item__image__discount">
+                <span class="cart-item__image__discount__text">{{ product.item.discount }}% {{ $t('item_card.discount') }}</span>
+            </figcaption>
+        </figure>
+        <section class="cart-item__description">
             <p class="cart-item__description__title">{{ product.item.title }}</p>
-            <p class="cart-item__description__seller">{{ product.item.seller }}</p>
+            <address class="cart-item__description__seller">{{ $t('item_card.selled_by') }} {{ product.item.seller }}</address>
             <div class="cart-item__description__buy">
                 <div class="cart-item__description__buy__price">
-                    <p class="cart-item__description__buy__price__old"> R${{ product.item.oldValue }}</p>
-                    <p class="cart-item__description__buy__price__new">R$ {{ product.item.value }}</p>
+                    <del class="cart-item__description__buy__price__old">{{ $t('currency') }}{{ product.item.oldValue }}</del>
+                    <strong class="cart-item__description__buy__price__new">{{ $t('currency') }} {{ product.item.value }}</strong>
                 </div>
-                <ItemCounter :quantity="quantityInCart" @increment="addToCart(product.item)" @decrement="reduceFromCart(product.item)"  />
+                <ItemCounter :quantity="quantityInCart" @increment="addToCart(product.item)" @decrement="reduceFromCart(product.item)" />
             </div>
-        </div>
-
-    </div>
+        </section>
+    </article>
 </template>
 
 <script setup lang="ts">
