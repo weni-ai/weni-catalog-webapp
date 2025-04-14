@@ -1,17 +1,40 @@
 <template>
     <header class="header">
-        <section class="header__title">
-            <img class="title__logo" src="../assets/weni-logo.svg" alt="Weni logo" />
-            <p class="title__text">{{ $t('header.title') }}</p>
-        </section>
+        <header class="header__title" @click="redirectToHome">
+            <img class="header__title__logo" src="../assets/weni-logo.svg" alt="" />
+            <p class="header__title__text">{{ $t('header.title') }}</p>
+        </header>
         <section class="header__cart">
             <img src="../assets/shopping_cart.svg" alt="" @click="toggleOpenCart" />
         </section>
     </header>
+
+    <UnnnicDrawer :modelValue="isOpenCart" :title="$t('cart.title')" :showCloseButton="true" @update:modelValue="isOpenCart = $event" @close="isOpenCart = false">
+        <template #content>
+            <CartView />
+        </template>
+    </UnnnicDrawer>
 </template>
 
 <script setup lang="ts">
-const toggleOpenCart = () => {};
+import { useRouter } from 'vue-router'; 
+import { computed, ref } from 'vue';
+import CartView from './CartView.vue';
+
+const router = useRouter();
+const isOpenCart = ref(false);
+const innerWidth = computed(() => window.innerWidth);
+const toggleOpenCart = () => {
+    if(innerWidth.value < 768) {
+        router.push('/cart');
+    } else {
+        isOpenCart.value = !isOpenCart.value;
+    }
+};
+
+const redirectToHome = () => {
+    router.push('/');
+};
 </script>
 
 <style lang="scss">

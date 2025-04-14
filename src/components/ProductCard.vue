@@ -24,7 +24,7 @@
             </UnnnicButton>
 
             <ItemCounter v-else :quantity="quantityInCart" @increment="addToCart(props.product)"
-                @decrement="decrementQuantity(props.product)" />
+                @decrement="reduceFromCart(props.product)" />
         </footer>
     </article>
 </template>
@@ -32,7 +32,7 @@
 
 <script lang="ts" setup>
 import type { ProductItem } from '../types/Cart';
-import { addToCart, decrementQuantity } from '../utils/cart';
+import { addToCart, reduceFromCart } from '../utils/cart';
 import ItemCounter from '../components/ItemCounter.vue'
 import { computed } from 'vue';
 import { useCartStore } from '../store/cart.store';
@@ -62,7 +62,7 @@ const selledBy = `${t('item_card.selled_by')} ${props.product.seller}`
 const cartStore = useCartStore();
 
 const quantityInCart = computed(() => {
-    const item = cartStore.items.find(i => i.id === props.product.id);
+    const item = cartStore.items.find(i => i.item.id === props.product.id);
     return item ? item.qtd : 0;
 });
 </script>

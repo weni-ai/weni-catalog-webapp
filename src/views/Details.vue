@@ -43,7 +43,7 @@
                     </UnnnicButton>
 
                     <ItemCounter class="details__container__about__button__counter" :quantity="quantityInCart"
-                        @increment="addToCart(selectedItem)" @decrement="decrementQuantity(selectedItem)" />
+                        @increment="addToCart(selectedItem)" @decrement="reduceFromCart(selectedItem)" />
                 </footer>
             </section>
         </main>
@@ -68,7 +68,7 @@
 
                     <div v-if="quantityInCart" class="drawer__button__counter">
                         <ItemCounter :quantity="quantityInCart" @increment="addToCart(selectedItem)"
-                            @decrement="decrementQuantity(selectedItem)" />
+                            @decrement="reduceFromCart(selectedItem)" />
                     </div>
                 </div>
             </aside>
@@ -85,7 +85,7 @@ import Carousel from '../components/Carousel.vue';
 import BottomDrawer from '../components/BottomDrawer.vue';
 import ItemCounter from '../components/ItemCounter.vue';
 
-import { addToCart, decrementQuantity } from '../utils/cart';
+import { addToCart, reduceFromCart } from '../utils/cart';
 import { useItemsStore } from '../store/items.store';
 import { useCartStore } from '../store/cart.store';
 
@@ -112,7 +112,7 @@ const tabletWidth = 768;
 const isWideScreen = computed(() => windowWidth.value < tabletWidth);
 
 const quantityInCart = computed(() => {
-    const item = cartStore.items.find(i => i.id === selectedItem.id);
+    const item = cartStore.items.find(i => i.item.id === selectedItem.id);
     return item ? item.qtd : 0;
 });
 

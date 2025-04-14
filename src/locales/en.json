@@ -20,7 +20,11 @@
         "selled_by": "selled by",
         "add_to_cart": "Add to cart",
         "from": "from",
-        "to": "to",
-        "by": "by"
+        "to": "to"
+    },
+    "cart": {
+        "title": "My cart",
+        "clearCart": "Clear cart",
+        "productsDeliveredBy": "Products delivered by"
     }
 }

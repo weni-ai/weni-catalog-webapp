@@ -24,7 +24,11 @@
         "selled_by": "vendido por",
         "add_to_cart": "Añadir al carrito",
         "from": "de",
-        "to": "a",
-        "by": "por"
+        "to": "a"
+    },
+    "cart": {
+        "title": "Mi carrito",
+        "clearCart": "Limpiar carrito",
+        "productsDeliveredBy": "Productos entregados por"
     }
 }

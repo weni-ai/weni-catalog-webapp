@@ -200,7 +200,41 @@ export const productsList = [
             {
                 src: '../src/assets/model.png',
                 alt: 'Imagem 1'
-            },
+            }
+        ]
+    },
+    {
+        id: 12,
+        title: "Simeticona 75mg 30 cápsulas",
+        description: "A Simeticona é um medicamento utilizado para aliviar os sintomas de gases e inchaço abdominal. Atua diminuindo a tensão superficial das bolhas de gás no trato digestivo, facilitando sua eliminação de forma natural. É indicada para adultos e crianças, sendo uma opção segura para alívio do desconforto causado por flatulência.",
+        image: '',
+        owner: 'Medley',
+        discount: 7,
+        seller: 'Farma X',
+        value: 20,
+        oldValue: 22,
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            }
+        ]
+    },
+    {
+        id: 13,
+        title: "Simeticona 75mg 30 cápsulas",
+        description: "A Simeticona é um medicamento utilizado para aliviar os sintomas de gases e inchaço abdominal. Atua diminuindo a tensão superficial das bolhas de gás no trato digestivo, facilitando sua eliminação de forma natural. É indicada para adultos e crianças, sendo uma opção segura para alívio do desconforto causado por flatulência.",
+        image: '',
+        owner: 'Medley',
+        discount: 7,
+        seller: 'Farma X',
+        value: 20,
+        oldValue: 22,
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            }
         ]
     }
 ];
