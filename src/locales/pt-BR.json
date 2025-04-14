@@ -11,7 +11,9 @@
         "discount": "desconto",
         "old_value": "valor antigo",
         "selled_by": "vendido por",
-        "add_to_cart": "Adicionar"
+        "add_to_cart": "Adicionar",
+        "from": "de",
+        "to": "por"
     },
     "cart": {
         "title": "Meu carrinho",
