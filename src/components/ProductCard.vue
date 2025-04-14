@@ -19,7 +19,7 @@
 
         </section>
         <footer class="card__button">
-            <UnnnicButton v-if="!quantityInCart" iconLeft="add-1" @click="addToCart(props.product)">
+            <UnnnicButton class="card__button__add" v-if="!quantityInCart" iconLeft="add" @click="handleAddToCart">
                 {{ $t('product_card.add_to_cart') }}
             </UnnnicButton>
 
@@ -76,7 +76,7 @@ const quantityInCart = computed(() => {
     flex: 1 0 0;
     height: 100%;
     border-radius: $unnnic-border-radius-sm;
-    border: 1px solid $unnnic-color-neutral-soft;
+    border: $unnnic-border-width-thinner solid $unnnic-color-neutral-soft;
     font-family: $unnnic-font-family-secondary;
     cursor: pointer;
 
@@ -84,7 +84,7 @@ const quantityInCart = computed(() => {
 
     &__discount {
         display: flex;
-        padding: 4px $unnnic-border-radius-md;
+        padding: $unnnic-spacing-nano $unnnic-border-radius-md;
         justify-content: center;
         align-items: center;
         border-radius: 0 0 $unnnic-border-radius-md $unnnic-border-radius-md;
@@ -168,8 +168,6 @@ const quantityInCart = computed(() => {
     &__button {
         display: flex;
         width: 100%;
-        height: 100%;
-        align-items: flex-end;
 
         :deep(.unnnic-button) {
             width: 100%;
