@@ -17,5 +17,14 @@
     "selled_by": "Vendido por",
     "currency": "EUR €",
     "from": "de",
-    "to": "a"
+    "to": "a",
+    "item_card": {
+        "discount": "descuento",
+        "old_value": "valor antiguo",
+        "selled_by": "vendido por",
+        "add_to_cart": "Añadir al carrito",
+        "from": "de",
+        "to": "a",
+        "by": "por"
+    }
 }

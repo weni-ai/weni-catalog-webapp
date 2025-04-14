@@ -19,7 +19,7 @@
 
         </section>
         <footer class="card__button">
-            <UnnnicButton class="card__button__add" v-if="!quantityInCart" iconLeft="add" @click="handleAddToCart">
+            <UnnnicButton class="card__button__add" v-if="!quantityInCart" iconLeft="add" @click="addToCart(props.product)">
                 {{ $t('product_card.add_to_cart') }}
             </UnnnicButton>
 
