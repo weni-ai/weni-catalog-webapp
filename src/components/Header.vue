@@ -61,19 +61,12 @@ const redirectToHome = () => {
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        gap: $unnnic-spacing-xs;
 
         @media (min-width: $tablet-width) {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-        }
-
-        &__logo {
-            width: 24px;
-        }
-
-        &__text {
-            margin-left: $unnnic-spacing-xs;
         }
     }
 

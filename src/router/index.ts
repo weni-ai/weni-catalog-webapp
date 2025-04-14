@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import ProductsList from "../components/ProductsList.vue";
 import Details from "../views/Details.vue";
 import CartView from "../components/CartView.vue";
 const router = createRouter({

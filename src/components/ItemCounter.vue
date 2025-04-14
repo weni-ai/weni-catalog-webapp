@@ -1,15 +1,18 @@
 <template>
-    <div class="counter">
-        <div class="counter__delete">
-            <UnnnicIcon data-test="decrement-button" v-if="quantity > 1" icon="subtract-1" scheme="weni-600" @click="$emit('decrement')" clickable/>
-            <UnnnicIcon data-test="decrement-button" v-else icon="bin-1-1" scheme="weni-600" @click="$emit('decrement')" clickable/>
-        </div>
-        <div class="counter__quantity">{{ quantity }}</div>
-        <div class="counter__add">
-            <UnnnicIcon data-test="increment-button" icon="add-1" scheme="weni-600" @click="$emit('increment')" clickable/>
-        </div>
-    </div>
+    <section class="counter" aria-label="Contador de itens no carrinho">
+        <button class="counter__delete" @click="$emit('decrement')"
+            :aria-label="quantity > 1 ? 'Diminuir quantidade' : 'Remover item do carrinho'">
+            <UnnnicIcon :icon="quantity > 1 ? 'remove' : 'delete'" scheme="weni-600" clickable />
+        </button>
+
+        <span class="counter__quantity" aria-live="polite">{{ quantity }}</span>
+
+        <button class="counter__add" @click="$emit('increment')" aria-label="Aumentar quantidade">
+            <UnnnicIcon icon="add" scheme="weni-600" clickable />
+        </button>
+    </section>
 </template>
+
 
 <script setup lang="ts">
 defineProps<{
@@ -26,15 +29,18 @@ defineProps<{
     align-items: center;
     align-self: stretch;
     border-radius: $unnnic-border-radius-sm;
-    border: 1px solid $unnnic-color-neutral-soft;
+    border: $unnnic-border-width-thinner solid $unnnic-color-neutral-soft;
     color: $unnnic-color-neutral-black;
     font-weight: $unnnic-font-weight-bold;
+    
 
     &__delete,
     &__add {
         display: flex;
         align-items: center;
         cursor: pointer;
+        background-color: transparent;
+        border: none;
     }
 }
 </style>

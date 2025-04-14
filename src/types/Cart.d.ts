@@ -8,6 +8,10 @@ export interface ProductItem{
     value: number,
     seller: string,
     id: string | number,
+    images: {
+        src: string,
+        alt: string
+    }[]
 }
 
 export interface CartItem{
