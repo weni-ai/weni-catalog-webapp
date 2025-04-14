@@ -142,7 +142,7 @@ function redirectTo(crumb: any) {
     &__breadcrumb {
         margin: 16px;
 
-        @media (min-width: 768px) {
+        @media (min-width: $tablet-width) {
             margin: 24px 24px 0;
         }
     }
@@ -153,7 +153,7 @@ function redirectTo(crumb: any) {
         gap: 16px;
         margin: 24px;
 
-        @media (min-width: 768px) {
+        @media (min-width: $tablet-width) {
             flex-direction: row;
             height: 100%;
         }
@@ -165,7 +165,7 @@ function redirectTo(crumb: any) {
             align-items: center;
             margin: 0;
 
-            @media (min-width: 768px) {
+            @media (min-width: $tablet-width) {
                 .carousel-img {
                     width: 100%;
                     height: 100%;
@@ -180,7 +180,7 @@ function redirectTo(crumb: any) {
             gap: 8px;
             margin-top: 16px;
 
-            @media (min-width: 768px) {
+            @media (min-width: $tablet-width) {
                 height: 100%;
                 align-self: center;
                 margin-top: 8px;
@@ -213,7 +213,7 @@ function redirectTo(crumb: any) {
                 color: var(--color-neutral-cloudy, #67738B);
             }
 
-            @media (min-width: 768px) {
+            @media (min-width: $tablet-width) {
                 flex-direction: column;
             }
 
