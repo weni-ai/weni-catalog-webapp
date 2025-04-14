@@ -9,6 +9,8 @@ export const productsList = [
         seller: 'Farma X',
         value: 164,
         oldValue: 169,
+        availableQuantity: 1,
+        category: 'Antidepressivos',
         images: [
             {
                 src: '../src/assets/model.png',
@@ -38,16 +40,8 @@ export const productsList = [
             {
                 src: '../src/assets/model.png',
                 alt: 'Imagem 1'
-            },
-            {
-                src: '../src/assets/model.png',
-                alt: 'Imagem 2'
-            },
-            {
-                src: '../src/assets/model.png',
-                alt: 'Imagem 3'
             }
-        ]
+        ]       
     },
     {
         id: 3,
@@ -59,6 +53,8 @@ export const productsList = [
         seller: 'Drogaria ABC',
         value: 18,
         oldValue: 21,
+        availableQuantity: 5,
+        category: 'Analgésicos',
         images: [
             {
                 src: '../src/assets/model.png',
@@ -77,6 +73,8 @@ export const productsList = [
         seller: 'Farmácia Total',
         value: 24,
         oldValue: 26,
+        availableQuantity: 10,
+        category: 'Analgésicos',
         images: [
             {
                 src: '../src/assets/model.png',
@@ -94,6 +92,8 @@ export const productsList = [
         seller: 'Saúde Farma',
         value: 45,
         oldValue: 51,
+        availableQuantity: 10,
+        category: 'Antacidos',
         images: [
             {
                 src: '../src/assets/model.png',
@@ -111,6 +111,8 @@ export const productsList = [
         seller: 'Farma Fácil',
         value: 22,
         oldValue: 23,
+        availableQuantity: 7,
+        category: 'Hipertensivos',
         images: [
             {
                 src: '../src/assets/model.png',
@@ -128,6 +130,8 @@ export const productsList = [
         seller: 'Drogaria Central',
         value: 19,
         oldValue: 24,
+        availableQuantity: 10,
+        category: 'Antidepressivos',
         images: [
             {
                 src: '../src/assets/model.png',
@@ -145,6 +149,8 @@ export const productsList = [
         seller: 'Farma Popular',
         value: 15,
         oldValue: 17,
+        availableQuantity: 10,
+        category: 'Antialérgicos',
         images: [
             {
                 src: '../src/assets/model.png',
@@ -162,6 +168,8 @@ export const productsList = [
         seller: 'Drogaria Econômica',
         value: 32,
         oldValue: 39,
+        availableQuantity: 10,
+        category: 'Antibióticos',
         images: [
             {
                 src: '../src/assets/model.png',
@@ -179,6 +187,8 @@ export const productsList = [
         seller: 'Farmácia da Saúde',
         value: 14,
         oldValue: 16,
+        availableQuantity: 10,
+        category: 'Antialérgicos',
         images: [
             {
                 src: '../src/assets/model.png',
@@ -213,6 +223,8 @@ export const productsList = [
         seller: 'Farma X',
         value: 20,
         oldValue: 22,
+        availableQuantity: 10,
+        category: 'Antialérgicos',
         images: [
             {
                 src: '../src/assets/model.png',
@@ -230,6 +242,8 @@ export const productsList = [
         seller: 'Farma X',
         value: 20,
         oldValue: 22,
+        availableQuantity: 10,
+        category: 'Antialérgicos',
         images: [
             {
                 src: '../src/assets/model.png',

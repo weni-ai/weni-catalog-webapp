@@ -12,6 +12,8 @@ export interface ProductItem{
         src: string,
         alt: string
     }[]
+    availableQuantity?: number,
+    category?: string,
 }
 
 export interface CartItem{
