@@ -106,7 +106,10 @@ const windowWidth = ref(window.innerWidth);
 window.addEventListener('resize', () => {
     windowWidth.value = window.innerWidth;
 });
-const isWideScreen = computed(() => windowWidth.value < 768);
+
+const tabletWidth = 768;
+
+const isWideScreen = computed(() => windowWidth.value < tabletWidth);
 
 const quantityInCart = computed(() => {
     const item = cartStore.items.find(i => i.id === selectedItem.id);

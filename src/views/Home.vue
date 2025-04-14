@@ -17,10 +17,12 @@ import { useCartStore } from '../store/cart.store';
 import ProductsList from '../components/ProductsList.vue';
 import SummaryDrawer from '../components/SummaryDrawer.vue';
 
-const isMobile = ref(window.innerWidth < 768);
+const tabletWidth = 768;
+
+const isMobile = ref(window.innerWidth < tabletWidth);
 
 const updateScreenSize = () => {
-    isMobile.value = window.innerWidth < 768;
+    isMobile.value = window.innerWidth < tabletWidth;
 };
 
 onMounted(() => {
