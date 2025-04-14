@@ -1,80 +1,81 @@
 <template>
-    <div class="details">
-        <div class="details__search">
-            <UnnnicInput v-model="searchInput" iconLeft="search-1" placeholder="Procurar produto" />
-        </div>
+    <section class="details">
+        <header class="details__search">
+            <UnnnicInput v-model="searchInput" iconLeft="search-1" placeholder="Procurar produto"
+                aria-label="Campo de busca de produto" />
+        </header>
 
-        <div class="details__breadcrumb">
+        <nav class="details__breadcrumb" aria-label="Navegação por categorias">
             <UnnnicBreadcrumb :crumbs="breadcrumbItems" @crumbClick="redirectTo" />
-        </div>
+        </nav>
 
-        <div class="details__container">
-            <div class="details__container__images">
-                <Carousel :items="images">
+        <main class="details__container">
+            <section class="details__container__images" aria-label="Imagens do produto">
+                <Carousel :items="selectedItem.images">
                     <template #default="{ item }">
                         <img :src="item.src" :alt="item.alt" class="carousel-img"
                             style="max-height: 100%; max-width: 440px; object-fit: cover;" />
                     </template>
                 </Carousel>
-            </div>
+            </section>
 
-            <div class="details__container__about">
-                <div class="details__container__about__title">
+            <section class="details__container__about" aria-label="Informações do produto">
+                <h1 class="details__container__about__title">
                     {{ selectedItem.title }}
-                </div>
+                </h1>
 
                 <div class="details__container__about__price">
-                    <div class="details__container__about__price__old">
-                        de R${{ selectedItem.oldValue }},00 por
-                    </div>
-                    <div class="details__container__about__price__new">
-                        R${{ selectedItem.value }},00
-                    </div>
+                    <p class="details__container__about__price__old">
+                        {{ $t('item_card.from') }} {{ $t('currency') }}{{ selectedItem.oldValue }},00
+                    </p>
+                    <p class="details__container__about__price__new">
+                        {{ $t('item_card.to') }} {{ $t('currency') }}{{ selectedItem.value }},00
+                    </p>
                 </div>
 
-                <div class="details__container__about__description">
+                <p class="details__container__about__description">
                     {{ selectedItem.description }}
-                </div>
-                <div class="details__container__about__button" v-if="!isWideScreen">
+                </p>
+
+                <footer class="details__container__about__button" v-if="!isWideScreen">
                     <UnnnicButton iconRight="add-1" size="small" @click="addToCart(selectedItem)">
                         {{ $t('item_card.add_to_cart') }}
                     </UnnnicButton>
+
                     <ItemCounter class="details__container__about__button__counter" :quantity="quantityInCart"
                         @increment="addToCart(selectedItem)" @decrement="reduceFromCart(selectedItem)" />
+                </footer>
+            </section>
+        </main>
+
+        <BottomDrawer v-if="isWideScreen" :isOpen="true">
+            <aside class="drawer" aria-label="Resumo de compra">
+                <div class="drawer__text">
+                    <p class="drawer__text__from">
+                        de R${{ selectedItem.oldValue }},00 por
+                    </p>
+                    <p class="drawer__text__to">
+                        R${{ selectedItem.value }},00
+                    </p>
                 </div>
-            </div>
 
-        </div>
-
-        <div v-if="isWideScreen">
-            <BottomDrawer :isOpen="true" :itemCount="0" :totalValue="0">
-                <div class="drawer">
-                    <div class="drawer__text">
-                        <div class="drawer__text__from">
-                            de R${{ selectedItem.oldValue }},00 por
-                        </div>
-                        <div class="drawer__text__to">
-                            R${{ selectedItem.value }},00
-                        </div>
+                <div class="drawer__button">
+                    <div class="drawer__button__add">
+                        <UnnnicButton iconRight="add-1" size="small" @click="addToCart(selectedItem)">
+                            {{ $t('item_card.add_to_cart') }}
+                        </UnnnicButton>
                     </div>
 
-                    <div class="drawer__button">
-                        <div class="drawer__button__add">
-                            <UnnnicButton iconRight="add-1" size="small" @click="addToCart(selectedItem)">
-                                {{ $t('item_card.add_to_cart') }}
-                            </UnnnicButton>
-                        </div>
-
-                        <div v-if="quantityInCart" class="drawer__button__counter">
-                            <ItemCounter :quantity="quantityInCart" @increment="addToCart(selectedItem)"
-                                @decrement="reduceFromCart(selectedItem)" />
-                        </div>
+                    <div v-if="quantityInCart" class="drawer__button__counter">
+                        <ItemCounter :quantity="quantityInCart" @increment="addToCart(selectedItem)"
+                            @decrement="reduceFromCart(selectedItem)" />
                     </div>
                 </div>
-            </BottomDrawer>
-        </div>
-    </div>
+            </aside>
+        </BottomDrawer>
+    </section>
 </template>
+
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
@@ -101,17 +102,14 @@ const breadcrumbItems = ref({
     1: { name: 'Página de produto', path: '/details' },
 });
 
-const images = ref([
-    { src: "../src/assets/model.png", alt: "Imagem 1" },
-    { src: "../src/assets/model.png", alt: "Imagem 1" },
-    { src: "../src/assets/model.png", alt: "Imagem 1" },
-]);
-
 const windowWidth = ref(window.innerWidth);
 window.addEventListener('resize', () => {
     windowWidth.value = window.innerWidth;
 });
-const isWideScreen = computed(() => windowWidth.value < 768);
+
+const tabletWidth = 768;
+
+const isWideScreen = computed(() => windowWidth.value < tabletWidth);
 
 const quantityInCart = computed(() => {
     const item = cartStore.items.find(i => i.item.id === selectedItem.id);
@@ -130,7 +128,7 @@ function redirectTo(crumb: any) {
     height: calc(100vh - 60px);
     overflow-y: auto;
     flex-direction: column;
-    padding: 0 24px 118px;
+    padding-bottom: 100px;
     font-family: $unnnic-font-family-secondary;
     -ms-overflow-style: none;
     scrollbar-width: 0;
@@ -144,7 +142,7 @@ function redirectTo(crumb: any) {
     &__breadcrumb {
         margin: 16px;
 
-        @media (min-width: 768px) {
+        @media (min-width: $tablet-width) {
             margin: 24px 24px 0;
         }
     }
@@ -155,7 +153,7 @@ function redirectTo(crumb: any) {
         gap: 16px;
         margin: 24px;
 
-        @media (min-width: 768px) {
+        @media (min-width: $tablet-width) {
             flex-direction: row;
             height: 100%;
         }
@@ -167,7 +165,7 @@ function redirectTo(crumb: any) {
             align-items: center;
             margin: 0;
 
-            @media (min-width: 768px) {
+            @media (min-width: $tablet-width) {
                 .carousel-img {
                     width: 100%;
                     height: 100%;
@@ -182,7 +180,7 @@ function redirectTo(crumb: any) {
             gap: 8px;
             margin-top: 16px;
 
-            @media (min-width: 768px) {
+            @media (min-width: $tablet-width) {
                 height: 100%;
                 align-self: center;
                 margin-top: 8px;
@@ -215,7 +213,7 @@ function redirectTo(crumb: any) {
                 color: var(--color-neutral-cloudy, #67738B);
             }
 
-            @media (min-width: 768px) {
+            @media (min-width: $tablet-width) {
                 flex-direction: column;
             }
 

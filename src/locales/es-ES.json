@@ -1,17 +1,30 @@
 {
+    "product_card": {
+        "add_to_cart": "Añadir al carrito",
+        "image": {
+            "alt": "Imagen del producto"
+        }
+    },
     "header": {
         "title": "Tienda Weni"
     },
     "summary_drawer": {
         "finish_order": "Finalizar pedido",
-        "total": "Total"    
+        "total": "Total",
+        "items": "items"
     },
-    "currency": "$",
+    "discount": "descuento",
+    "selled_by": "Vendido por",
+    "currency": "EUR €",
+    "from": "de",
+    "to": "a",
     "item_card": {
         "discount": "descuento",
         "old_value": "valor antiguo",
         "selled_by": "vendido por",
-        "add_to_cart": "Añadir al carrito"
+        "add_to_cart": "Añadir al carrito",
+        "from": "de",
+        "to": "a"
     },
     "cart": {
         "title": "Mi carrito",

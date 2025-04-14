@@ -22,18 +22,11 @@
 import { computed, ref } from 'vue';
 import CartItem from './CartItem.vue';
 import { useCartStore } from '../store/cart.store';
-import { clearCart } from '../utils/cart';
+import { clearCart, groupItemsBySeller } from '../utils/cart';
 const cartStore = useCartStore();
 const items = computed(() => cartStore.items);
 const groupedItemsBySeller = computed(() => {
-    return items.value.reduce((acc, item) => {
-        const seller = item.item.seller;
-        if (!acc[seller]) {
-            acc[seller] = [];
-        }
-        acc[seller].push(item);
-        return acc;
-    }, {} as Record<string, typeof items.value>);
+    return groupItemsBySeller(items.value);
 });
 const innerWidth = ref(window.innerWidth);
 </script>

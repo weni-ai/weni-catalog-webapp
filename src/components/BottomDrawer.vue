@@ -4,9 +4,10 @@
         <div class="drawer__handle"></div>
         <div class="drawer__content">
             <slot />
-        </div>
-    </div>
+        </section>
+    </aside>
 </template>
+
 
 <script lang="ts" setup>
 import { ref } from 'vue';
@@ -76,8 +77,19 @@ const endDrag = () => {
     }
 
     &__content {
+    &__content {
         display: flex;
         width: 100%;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
     }
 }
 </style>

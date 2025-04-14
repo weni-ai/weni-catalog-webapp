@@ -1,22 +1,31 @@
 <template>
-    <div class="unnnic-carousel">
-        <div class="unnnic-carousel__button unnnic-carousel__button--left">
+    <section class="unnnic-carousel" aria-label="Product Carousel">
+        <button 
+            class="unnnic-carousel__button unnnic-carousel__button--left" 
+            aria-label="Previous slide"
+            :disabled="!hasPrev"
+        >
             <UnnnicIcon icon="arrow-left-1-1" size="sm" :scheme="hasPrev ? 'neutral-black' : 'neutral-cleanest'"
                 clickable @click="previous" />
-        </div>
+        </button>
 
-        <div class="unnnic-carousel__container">
-            <div class="unnnic-carousel__track" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
-                <div v-for="(item, index) in items" :key="index" class="unnnic-carousel__slide">
+        <div class="unnnic-carousel__container" role="region" aria-live="polite">
+            <ul class="unnnic-carousel__track" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
+                <li v-for="(item, index) in items" :key="index" class="unnnic-carousel__slide" 
+                    :aria-hidden="currentIndex !== index" role="group" :aria-roledescription="'slide ' + (index + 1) + ' of ' + items.length">
                     <slot :item="item" />
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
-        <div class="unnnic-carousel__button unnnic-carousel__button--right">
+        <button 
+            class="unnnic-carousel__button unnnic-carousel__button--right" 
+            aria-label="Next slide"
+            :disabled="!hasNext"
+        >
             <UnnnicIcon icon="arrow-right-1-1" size="sm" :scheme="hasNext ? 'neutral-black' : 'neutral-cleanest'"
                 clickable @click="next" />
-        </div>
-    </div>
+        </button>
+    </section>
 </template>
 
 <script lang="ts" setup>
@@ -75,7 +84,7 @@ const previous = () => {
         transform: translateY(-50%);
         cursor: pointer;
         background: rgba(255, 255, 255, 0.8);
-        border-radius: 50%;
+        border: none;
         padding: 10px;
         z-index: 10;
         transition: background 0.3s;

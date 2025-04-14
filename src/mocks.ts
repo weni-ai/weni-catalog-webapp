@@ -1,4 +1,4 @@
-export const itemsList = [
+export const productsList = [
     {
         id: 1,
         title: "Cloridrato de Sertralina 25mg 30 comprimidos Eurofarma Genérico",
@@ -10,7 +10,21 @@ export const itemsList = [
         value: 164,
         oldValue: 169,
         availableQuantity: 1,
-        category: 'Antidepressivos'
+        category: 'Antidepressivos',
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            },
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 2'
+            },
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 3'
+            }
+        ]
     },
     {
         id: 2,
@@ -22,8 +36,12 @@ export const itemsList = [
         seller: 'Farmácia Popular',
         value: 12,
         oldValue: 13,
-            availableQuantity: 6,
-        category: 'Analgésicos'
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            }
+        ]       
     },
     {
         id: 3,
@@ -36,7 +54,14 @@ export const itemsList = [
         value: 18,
         oldValue: 21,
         availableQuantity: 5,
-        category: 'Analgésicos'
+        category: 'Analgésicos',
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            },
+            
+        ]
     },
     {
         id: 4,
@@ -49,7 +74,13 @@ export const itemsList = [
         value: 24,
         oldValue: 26,
         availableQuantity: 10,
-        category: 'Analgésicos'
+        category: 'Analgésicos',
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            },
+        ]
     },
     {
         id: 5,
@@ -62,7 +93,13 @@ export const itemsList = [
         value: 45,
         oldValue: 51,
         availableQuantity: 10,
-        category: 'Antacidos'
+        category: 'Antacidos',
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            },
+        ]
     },
     {
         id: 6,
@@ -75,7 +112,13 @@ export const itemsList = [
         value: 22,
         oldValue: 23,
         availableQuantity: 7,
-        category: 'Hipertensivos'
+        category: 'Hipertensivos',
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            },
+        ]
     },
     {
         id: 7,
@@ -88,7 +131,13 @@ export const itemsList = [
         value: 19,
         oldValue: 24,
         availableQuantity: 10,
-        category: 'Antidepressivos'
+        category: 'Antidepressivos',
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            },
+        ]
     },
     {
         id: 8,
@@ -101,7 +150,13 @@ export const itemsList = [
         value: 15,
         oldValue: 17,
         availableQuantity: 10,
-        category: 'Antialérgicos'
+        category: 'Antialérgicos',
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            },
+        ]
     },
     {
         id: 9,
@@ -114,7 +169,13 @@ export const itemsList = [
         value: 32,
         oldValue: 39,
         availableQuantity: 10,
-        category: 'Antibióticos'
+        category: 'Antibióticos',
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            },
+        ]
     },
     {
         id: 10,
@@ -127,7 +188,13 @@ export const itemsList = [
         value: 14,
         oldValue: 16,
         availableQuantity: 10,
-        category: 'Antialérgicos'
+        category: 'Antialérgicos',
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            },
+        ]
     },
     {
         id: 11,
@@ -138,7 +205,13 @@ export const itemsList = [
         discount: 7,
         seller: 'Farma X',
         value: 20,
-        oldValue: 22
+        oldValue: 22,
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            }
+        ]
     },
     {
         id: 12,
@@ -151,7 +224,13 @@ export const itemsList = [
         value: 20,
         oldValue: 22,
         availableQuantity: 10,
-        category: 'Antialérgicos'
+        category: 'Antialérgicos',
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            }
+        ]
     },
     {
         id: 13,
@@ -164,6 +243,12 @@ export const itemsList = [
         value: 20,
         oldValue: 22,
         availableQuantity: 10,
-        category: 'Antialérgicos'
+        category: 'Antialérgicos',
+        images: [
+            {
+                src: '../src/assets/model.png',
+                alt: 'Imagem 1'
+            }
+        ]
     }
 ];

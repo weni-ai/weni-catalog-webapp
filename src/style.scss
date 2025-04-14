@@ -1,4 +1,3 @@
-/* Reset básico para consistência */
 *,
 *::before,
 *::after {
@@ -6,8 +5,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/* Remove estilos padrões de cabeçalhos, listas e parágrafos */
+/
 body,
 h1,
 h2,
@@ -27,13 +25,11 @@ ol[role="list"] {
   padding: 0;
 }
 
-/* Remove sublinhados em links por padrão */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Redefine estilos padrão de botões */
 button {
   border: 0;
   background: none;
@@ -43,7 +39,6 @@ button {
   cursor: pointer;
 }
 
-/* Configura a base para elementos HTML */
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
@@ -51,7 +46,6 @@ html {
   line-height: 1.5;
 }
 
-/* Define o corpo básico */
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
@@ -59,14 +53,12 @@ body {
   color: #000;
 }
 
-/* Reduz inconsistências de imagens */
 img,
 picture {
   max-width: 100%;
   display: block;
 }
 
-/* Garante que formulários tenham uma base limpa */
 input,
 textarea,
 select,
@@ -75,7 +67,6 @@ button {
   margin: 0;
 }
 
-/* Previne overflows indesejados */
 iframe,
 embed,
 object {
@@ -83,7 +74,6 @@ object {
   height: auto;
 }
 
-/* Adiciona uma base para tabelas */
 table {
   border-collapse: collapse;
   width: 100%;
