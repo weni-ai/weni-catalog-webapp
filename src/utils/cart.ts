@@ -1,4 +1,3 @@
-// utils/cartUtils.ts
 import { useCartStore } from '../store/cart.store';
 import type { ProductItem, CartItem } from '../types/Cart';
 
@@ -17,5 +16,17 @@ export function addToCart(product: ProductItem) {
         };
 
         cartStore.addItemToCart(newItem);
+    }
+}
+
+export function decrementQuantity(product: ProductItem) {
+    const cartStore = useCartStore();
+    const item = cartStore.items.find(i => i.id === product.id);
+    if (item) {
+        if (item.qtd > 1) {
+            cartStore.updateItemQuantity(item.id, -1);
+        } else {
+            cartStore.removeItem(item.id);
+        }
     }
 }
