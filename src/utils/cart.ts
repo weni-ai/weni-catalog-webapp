@@ -4,7 +4,7 @@ import type { ProductItem, CartItem } from '../types/Cart';
 export function addToCart(product: ProductItem) {
     const cartStore = useCartStore();
 
-    const existingItem = cartStore.items.find(item => item.item.id === product.id);
+    const existingItem = cartStore.items.find(productItem => productItem.item.id === product.id);
 
     if (existingItem) {
         cartStore.updateItemQuantity(product.id, 1);
@@ -20,7 +20,7 @@ export function addToCart(product: ProductItem) {
 
 export function reduceFromCart(product: ProductItem) {
     const cartStore = useCartStore();
-    const existingItem = cartStore.items.find(item => item.item.id === product.id);
+    const existingItem = cartStore.items.find(productItem => productItem.item.id === product.id);
 
     if (existingItem && existingItem.qtd > 1) {
         cartStore.updateItemQuantity(product.id, -1);
@@ -32,4 +32,16 @@ export function reduceFromCart(product: ProductItem) {
 export function clearCart() {
     const cartStore = useCartStore();
     cartStore.items = [];
+}
+
+export function decrementQuantity(product: ProductItem) {
+    const cartStore = useCartStore();
+    const productItem = cartStore.items.find(productItem => productItem.item.id === product.id);
+    if (productItem) {
+        if (productItem.qtd > 1) {
+            cartStore.updateItemQuantity(productItem.item.id, -1);
+        } else {
+            cartStore.removeItem(productItem.item.id);
+        }
+    }
 }
