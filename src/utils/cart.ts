@@ -1,4 +1,4 @@
-import { itemsList } from '../mocks';
+import { productsList } from '../mocks';
 import { useCartStore } from '../store/cart.store';
 import type { ProductItem, CartItem } from '../types/Cart';
 
@@ -58,6 +58,6 @@ export function groupItemsBySeller(items: CartItem[]): Record<string, CartItem[]
     }, {} as Record<string, CartItem[]>);
 }
 export function getSimilarProducts(product: ProductItem) {
-    const similarProducts = itemsList.filter(item => item.category === product.category && item.id !== product.id);
+    const similarProducts = productsList.filter(item => item.category === product.category && item.id !== product.id);
     return similarProducts;
 }

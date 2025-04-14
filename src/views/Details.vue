@@ -48,7 +48,7 @@
             </section>
         </main>
 
-        <BottomDrawer v-if="isWideScreen" :isOpen="true">
+        <BottomDrawer v-if="isWideScreen" :isOpen="true" :itemCount="quantityInCart" :totalValue="selectedItem.value">
             <aside class="drawer" aria-label="Resumo de compra">
                 <div class="drawer__text">
                     <p class="drawer__text__from">

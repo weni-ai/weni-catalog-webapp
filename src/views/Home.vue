@@ -8,7 +8,6 @@
         </section>
         <SummaryDrawer v-if="isMobile" :isOpen="isDrawerOpen" :itemCount="itemCount" :totalValue="totalValue" />
     </main>      
-    </div>
     <InventoryModal v-if="pageType === 'desktop'" :product="{ item: inventoryProduct, qtd: 0 }" :open="open" @toggleModal="toggleModal" />
     <BottomDrawer v-if="pageType === 'mobile'" :isOpen="open" :itemCount="itemCount" :totalValue="totalValue" @close="toggleModal" >
         <InventoryView :product="{ item: inventoryProduct, qtd: 0 }" />
@@ -46,11 +45,6 @@ onUnmounted(() => {
 });
 
 const pageType = computed(() => (isMobile.value ? 'mobile' : 'desktop'));
-
-const showInventoryModal = (product: ProductItem) => {
-    inventoryProduct.value = product;
-    open.value = true;
-}
 
 const searchInput = ref('');
 

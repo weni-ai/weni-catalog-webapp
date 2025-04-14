@@ -4,8 +4,8 @@
         <div class="drawer__handle"></div>
         <div class="drawer__content">
             <slot />
-        </section>
-    </aside>
+        </div>
+    </div>
 </template>
 
 
@@ -81,6 +81,7 @@ const endDrag = () => {
         display: flex;
         width: 100%;
     }
+}
 }
 
 @keyframes slide-up {
