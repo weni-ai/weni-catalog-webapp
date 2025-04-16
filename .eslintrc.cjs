@@ -6,17 +6,14 @@ module.exports = {
         es2021: true
     },
     extends: [
-        'eslint:recommended',
-        'plugin:vue/vue3-essential',
-        'plugin:@typescript-eslint/recommended'
+        '@weni/eslint-config/vue3', 'prettier', '@vue/eslint-config-typescript'
     ],
     parser: 'vue-eslint-parser',
     parserOptions: {
         parser: '@typescript-eslint/parser',
-        ecmaVersion: 2021,
-        sourceType: 'module'
+        ecmaVersion: 'latest',
     },
-    plugins: ['vue', '@typescript-eslint'],
+    plugins: ['vue', '@typescript-eslint', 'prettier'],
     rules: {
         'no-console': 'warn',
         'no-debugger': 'warn',
