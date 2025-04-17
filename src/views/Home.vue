@@ -1,7 +1,7 @@
 <template>
     <main class="home">
         <section class="home__search">
-            <UnnnicInput v-model="searchInput" iconLeft="search-1" placeholder="Procurar produto" />
+            <UnnnicInput v-model="searchInput" iconLeft="search-1" :placeholder="$t('search')" />
         </section>
         <section class="home__items">
             <ProductsList/>
