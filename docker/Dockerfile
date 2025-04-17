@@ -9,25 +9,14 @@ FROM node:${NODE_VERSION}-${BASE_VERSION} AS builder
 
 WORKDIR /app
 
-# # Add build arguments for env variables
-# ARG PUBLIC_PATH_URL
-# ARG API_BASE_URL
-# ARG BUILD_ENV_ARGS
-
-# Set them as environment variables
-# ENV PUBLIC_PATH_URL=${PUBLIC_PATH_URL}
-# ENV API_BASE_URL=${API_BASE_URL}
-
 RUN apk add --no-cache git
 
 COPY package.json yarn.lock ./
 
-# RUN --mount=type=cache,target=/root/.npm NPM_CONFIG_CACHE=/root/.npm npm install
 RUN yarn install
 
 COPY . ./
 
-# RUN npm run build-only
 RUN yarn build
 
 # FROM ${OLD_IMAGE} AS old_css
