@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:1
 
-ARG NODE_VERSION="18.19.1"
+ARG NODE_VERSION="20"
 ARG BASE_VERSION="alpine3.19"
 # ARG OLD_IMAGE="catalog:latest"
 ARG KEEP_DAYS=60
