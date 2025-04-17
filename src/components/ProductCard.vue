@@ -4,31 +4,38 @@
             {{ discountTitle }}
         </header>
 
-        <img src="../assets/model.png" alt="" class="card__image">
+        <figure class="card__image">
+            <img src="../assets/model.png" :alt="$t('product_card.image.alt')" />
+        </figure>
 
         <section class="card__description">
-            <h2 class="card__description__title">{{ product.title }}</h2>
+            <p class="card__description__title">{{ product.title }}</p>
             <p class="card__description__owner">{{ product.owner }}</p>
             <p class="card__description__old_value">{{ oldValueTitle }}</p>
             <p class="card__description__new_value">{{ newValue }}</p>
             <p class="card__description__seller">{{ selledBy }}</p>
         </section>
 
-        <UnnnicButton
-            iconLeft="add"
-            @click="addToCart(props.product)"
-            class="card__button"
-        >
-            {{ $t('add_to_cart') }}
-        </UnnnicButton>
+        <footer class="card__button">
+            <UnnnicButton class="card__button__add" v-if="!quantityInCart" iconLeft="add" @click="addToCart(props.product)">
+                {{ $t('product_card.add_to_cart') }}
+            </UnnnicButton>
+
+            <ItemCounter class="card__button__counter" v-else :quantity="quantityInCart" @increment="addToCart(props.product)"
+                @decrement="decrementQuantity(props.product)" />
+        </footer>
     </article>
 </template>
 
 
 <script lang="ts" setup>
 import type { ProductItem } from '../types/Cart';
-import { addToCart } from '../utils/cart';
+import { addToCart, decrementQuantity } from '../utils/cart';
+import ItemCounter from '../components/ItemCounter.vue'
+import { computed } from 'vue';
+import { useCartStore } from '../store/cart.store';
 import { useI18n } from 'vue-i18n';
+
 
 const { t } = useI18n();
 
@@ -40,6 +47,13 @@ const discountTitle = `${props.product.discount}% ${t('discount')}`
 const oldValueTitle = ` ${t('from')} ${t('currency')} ${props.product.oldValue},00`
 const newValue = `${t('currency')} ${props.product.value},00`
 const selledBy = `${t('selled_by')} ${props.product.seller}`
+
+const cartStore = useCartStore();
+
+const quantityInCart = computed(() => {
+    const item = cartStore.items.find(i => i.id === props.product.id);
+    return item ? item.qtd : 0;
+});
 
 </script>
 
@@ -74,6 +88,7 @@ const selledBy = `${t('selled_by')} ${props.product.seller}`
 
     &__description {
         flex: 1;
+
         &__title {
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -98,9 +113,22 @@ const selledBy = `${t('selled_by')} ${props.product.seller}`
         }
 
         &__new_value {
-                color: $unnnic-color-weni-600;
+            color: $unnnic-color-weni-600;
             font-size: $unnnic-font-size-body-lg;
             font-weight: $unnnic-font-weight-bold;
+        }
+    }
+
+    &__button {
+        display: flex;
+        width: 100%;
+
+        &__add {
+            width: 100%;
+        }
+
+        &__counter {
+            width: 100%;
         }
     }
 }

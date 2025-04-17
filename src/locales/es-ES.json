@@ -1,12 +1,26 @@
 {
-    "add_to_cart": "Añadir al carrito",
+    "product_card": {
+        "add_to_cart": "Añadir al carrito",
+        "image": {
+            "alt": "Imagen del producto"
+        }
+    },
     "header": {
         "title": "Tienda Weni"
+    },
+    "summary_drawer": {
+        "finish_order": "Finalizar pedido",
+        "total": "Total",
+        "items": "items"
     },
     "discount": "descuento",
     "selled_by": "Vendido por",
     "currency": "EUR €",
     "from": "de",
     "to": "a",
-    "search": "Buscar producto"
+    "search": "Buscar producto",
+    "counter": "Contador",
+    "decrement": "Disminuir",
+    "remove": "Remover",
+    "increment": "Aumentar"
 }
