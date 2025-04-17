@@ -17,12 +17,12 @@
         </section>
 
         <footer class="card__button">
-            <UnnnicButton class="card__button__add" v-if="!quantityInCart" iconLeft="add" @click="handleAddToCart">
+            <UnnnicButton class="card__button__add" v-if="!quantityInCart" iconLeft="add" @click="addToCart(props.product)">
                 {{ $t('product_card.add_to_cart') }}
             </UnnnicButton>
 
-            <ItemCounter class="card__button__counter" v-else :quantity="quantityInCart" @increment="incrementQuantity"
-                @decrement="decrementQuantity" />
+            <ItemCounter class="card__button__counter" v-else :quantity="quantityInCart" @increment="addToCart(props.product)"
+                @decrement="decrementQuantity(props.product)" />
         </footer>
     </article>
 </template>
@@ -30,7 +30,7 @@
 
 <script lang="ts" setup>
 import type { ProductItem } from '../types/Cart';
-import { addToCart } from '../utils/cart';
+import { addToCart, decrementQuantity } from '../utils/cart';
 import ItemCounter from '../components/ItemCounter.vue'
 import { computed } from 'vue';
 import { useCartStore } from '../store/cart.store';
@@ -54,25 +54,6 @@ const quantityInCart = computed(() => {
     const item = cartStore.items.find(i => i.id === props.product.id);
     return item ? item.qtd : 0;
 });
-
-function handleAddToCart() {
-    addToCart(props.product);
-}
-
-function incrementQuantity() {
-    addToCart(props.product);
-}
-
-function decrementQuantity() {
-	const item = cartStore.items.find(i => i.id === props.product.id);
-	if (!item) return;
-	
-	if (item.qtd > 1) {
-	 cartStore.updateItemQuantity(item.id, -1);
-	} else {
-      cartStore.removeItem(item.id);
-	}
-}
 
 </script>
 
