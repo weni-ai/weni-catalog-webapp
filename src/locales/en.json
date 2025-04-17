@@ -11,12 +11,17 @@
         "summary_drawer": {
         "finish_order": "Finish order",
         "total": "Total",
-        "items": "items"
+        "items": "items",
+        "aria_label": "Summary drawer"
     },
     "discount": "discount",
     "selled_by": "Selled by",
     "currency": "USD $",
     "from": "from",
     "to": "to",
-    "search": "Search product"
+    "search": "Search product",
+    "counter": "Counter",
+    "decrement": "Decrement",
+    "remove": "Remove",
+    "increment": "Increment"
 }

@@ -64,15 +64,16 @@ function incrementQuantity() {
 }
 
 function decrementQuantity() {
-    const item = cartStore.items.find(i => i.id === props.product.id);
-    if (item) {
-        if (item.qtd > 1) {
-            cartStore.updateItemQuantity(item.id, -1);
-        } else {
-            cartStore.removeItem(item.id);
-        }
-    }
+	const item = cartStore.items.find(i => i.id === props.product.id);
+	if (!item) return;
+	
+	if (item.qtd > 1) {
+	 cartStore.updateItemQuantity(item.id, -1);
+	} else {
+      cartStore.removeItem(item.id);
+	}
 }
+
 </script>
 
 <style lang="scss" scoped>

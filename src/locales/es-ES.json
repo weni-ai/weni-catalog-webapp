@@ -18,5 +18,9 @@
     "currency": "EUR €",
     "from": "de",
     "to": "a",
-    "search": "Buscar producto"
+    "search": "Buscar producto",
+    "counter": "Contador",
+    "decrement": "Disminuir",
+    "remove": "Remover",
+    "increment": "Aumentar"
 }

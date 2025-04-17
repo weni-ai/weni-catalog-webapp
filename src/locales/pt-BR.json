@@ -18,5 +18,9 @@
     "currency": "BRL R$",
     "from": "de",
     "to": "por",
-    "search": "Procurar produto"
+    "search": "Procurar produto",
+    "counter": "Contador",
+    "decrement": "Diminuir",
+    "remove": "Remover",
+    "increment": "Aumentar"
 }
