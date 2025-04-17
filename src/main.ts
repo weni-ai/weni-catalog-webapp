@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router'
 import { createPinia } from 'pinia'
 import { UnnnicSystem } from './plugins/UnnnicSystem';
-import { i18n } from './locales'
+import { i18n } from './plugins/i18n';
+
 
 const pinia = createPinia();
 const app = createApp(App);
