@@ -19,10 +19,12 @@
 
         </section>
         <footer class="card__button">
-            <UnnnicButton class="card__button__add" v-if="!quantityInCart" iconLeft="add" @click="addToCart(props.product)">
+            <UnnnicButton class="card__button__add" v-if="!quantityInCart" iconLeft="add" @click="handleAddToCart">
                 {{ $t('product_card.add_to_cart') }}
             </UnnnicButton>
 
+            <ItemCounter class="card__button__counter" v-else :quantity="quantityInCart" @increment="addToCart(props.product)"
+                @decrement="decrementQuantity(props.product)" />
             <ItemCounter v-else :quantity="quantityInCart" @increment="addToCart(props.product)"
                 @decrement="decrementQuantity(props.product)" />
         </footer>

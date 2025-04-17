@@ -1,7 +1,7 @@
 <template>
     <main class="home">
         <section class="home__search">
-            <UnnnicInput v-model="searchInput" iconLeft="search-1" placeholder="Procurar produto" />
+            <UnnnicInput v-model="searchInput" iconLeft="search-1" :placeholder="$t('search')" />
         </section>
         <section class="home__items">
             <ProductsList/>
@@ -16,13 +16,12 @@ import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useCartStore } from '../store/cart.store';
 import ProductsList from '../components/ProductsList.vue';
 import SummaryDrawer from '../components/SummaryDrawer.vue';
+import mobile from 'is-mobile';
 
-const tabletWidth = 768;
-
-const isMobile = ref(window.innerWidth < tabletWidth);
+const isMobile = ref(mobile());
 
 const updateScreenSize = () => {
-    isMobile.value = window.innerWidth < tabletWidth;
+    isMobile.value = mobile();
 };
 
 onMounted(() => {

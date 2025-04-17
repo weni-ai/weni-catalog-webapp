@@ -21,6 +21,11 @@
         "add_to_cart": "Adicionar",
         "from": "de",
         "to": "a",
-        "by": "por"
+        "by": "por",
+    "search": "Procurar produto",
+    "counter": "Contador",
+    "decrement": "Diminuir",
+    "remove": "Remover",
+    "increment": "Aumentar"
     }
 }

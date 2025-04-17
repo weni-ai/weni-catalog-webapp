@@ -11,7 +11,8 @@
     "summary_drawer": {
         "finish_order": "Finish order",
         "total": "Total",
-        "items": "items"
+        "items": "items",
+        "aria_label": "Summary drawer"
     },
     "currency": "$",
     "item_card": {
@@ -22,5 +23,10 @@
         "from": "from",
         "to": "to",
         "by": "by"
-    }
+    },
+    "search": "Search product",
+    "counter": "Counter",
+    "decrement": "Decrement",
+    "remove": "Remove",
+    "increment": "Increment"
 }

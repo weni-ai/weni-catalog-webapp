@@ -22,11 +22,11 @@ export function addToCart(product: ProductItem) {
 export function decrementQuantity(product: ProductItem) {
     const cartStore = useCartStore();
     const item = cartStore.items.find(i => i.id === product.id);
-    if (item) {
-        if (item.qtd > 1) {
-            cartStore.updateItemQuantity(item.id, -1);
-        } else {
-            cartStore.removeItem(item.id);
-        }
-    }
+    if (!item) return;
+	
+	if (item.qtd > 1) {
+	 cartStore.updateItemQuantity(item.id, -1);
+	} else {
+      cartStore.removeItem(item.id);
+	}
 }

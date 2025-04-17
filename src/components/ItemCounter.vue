@@ -1,13 +1,13 @@
 <template>
-    <section class="counter" aria-label="Contador de itens no carrinho">
+    <section class="counter" :aria-label="$t('counter')">
         <button class="counter__delete" @click="$emit('decrement')"
-            :aria-label="quantity > 1 ? 'Diminuir quantidade' : 'Remover item do carrinho'">
+            :aria-label="quantity > 1 ? $t('decrement') : $t('remove')">
             <UnnnicIcon :icon="quantity > 1 ? 'remove' : 'delete'" scheme="weni-600" clickable />
         </button>
 
-        <span class="counter__quantity" aria-live="polite">{{ quantity }}</span>
+        <p class="counter__quantity" aria-live="polite">{{ quantity }}</p>
 
-        <button class="counter__add" @click="$emit('increment')" aria-label="Aumentar quantidade">
+        <button class="counter__add" @click="$emit('increment')" :aria-label="$t('increment')">
             <UnnnicIcon icon="add" scheme="weni-600" clickable />
         </button>
     </section>
