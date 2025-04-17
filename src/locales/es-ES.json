@@ -17,5 +17,6 @@
     "selled_by": "Vendido por",
     "currency": "EUR €",
     "from": "de",
-    "to": "a"
+    "to": "a",
+    "search": "Buscar producto"
 }
