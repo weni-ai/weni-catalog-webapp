@@ -1,5 +1,5 @@
 import type { App, Component } from 'vue';
-// @ts-ignore
+// @ts-expect-error: Necessary to ignore type errors for this import
 import Unnnic from '@weni/unnnic-system';
 import '@weni/unnnic-system/dist/style.css';
 
