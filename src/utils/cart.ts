@@ -30,4 +30,3 @@ export function decrementQuantity(product: ProductItem) {
       cartStore.removeItem(item.id);
 	}
 }
-

@@ -23,6 +23,7 @@ defineProps<{
 <style lang="scss">
 .counter {
     display: flex;
+    width: 100%;
     padding: $unnnic-spacing-xs;
     justify-content: space-between;
     align-items: center;
